@@ -4,18 +4,19 @@
  * and open the template in the editor.
  */
 package app;
-
+import model.GranCanaryRent;
 /**
  *
  * @author Juanma
  */
-public class GranCanaryRent {
+public class GranCanaryRentApp {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        GranCanaryRent model = new GranCanaryRent();
     }
     
 }

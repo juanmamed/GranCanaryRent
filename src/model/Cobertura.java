@@ -9,16 +9,16 @@ package model;
  *
  * @author Juanma
  */
-public class Seguro {
-    private String precio;
+public class Cobertura {
+    private float precio;
     private String nombreSeguro;
 
-    public Seguro(String precio, String nombreCobertura) {
+    public Cobertura(float precio, String nombreSeguro) {
         this.precio = precio;
         this.nombreSeguro = nombreSeguro;
     }
 
-    public String getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 

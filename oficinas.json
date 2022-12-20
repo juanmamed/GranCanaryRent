@@ -1,0 +1,18 @@
+[
+	{
+		"direccion": "Aeropuerto de Gran Canaria",
+		"numero": "928579130",
+	},
+	{
+		"direccion": "Las Palmas (Triana)",
+		"numero": "928152119"
+	},
+	{
+		"direccion": "Maspalomas (playa del ingles)",
+		"numero": "928152119"
+	},
+	{
+		"direccion": "Galdar (Cueva Pintada)",
+		"numero": "928267749"
+	}
+]

@@ -16,10 +16,9 @@ public class Oficina {
     private String numContacto;
     private ArrayList<Vehiculo> vehiculosDisponibles;
 
-    public Oficina(String direccion, String numContacto, ArrayList<Vehiculo> vehiculosDisponibles) {
+    public Oficina(String direccion, String numContacto) {
         this.direccion = direccion;
         this.numContacto = numContacto;
-        this.vehiculosDisponibles = vehiculosDisponibles;
     }
 
     public String getDireccion() {
@@ -36,5 +35,12 @@ public class Oficina {
     
     public void loadVehiculos(String jsonVehiculos){
         
+    }
+    
+    @Override
+    public String toString(){
+        String result = "";
+        result += this.getDireccion() + " - " + this.getNumContacto();
+        return result;
     }
 }

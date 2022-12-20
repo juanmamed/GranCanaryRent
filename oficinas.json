@@ -2,10 +2,51 @@
 	{
 		"direccion": "Aeropuerto de Gran Canaria",
 		"numero": "928579130",
+		"vehiculos": [
+			{
+				"cambio": "MANUAL",
+				"motor": "GASOLINA",
+				"vehiculo": "PEQUEÑO",
+				"asientos": 4,
+				"puertas": 3,
+				"precio": 56.59,
+				"modelo": "Volkswagen Up"
+			},
+			{
+				"cambio": "MANUAL",
+				"motor": "HIBRIDO",
+				"vehiculo": "MEDIANO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 77.96,
+				"modelo": "Fiat 500X"
+			},
+		]
 	},
 	{
 		"direccion": "Las Palmas (Triana)",
-		"numero": "928152119"
+		"numero": "928152119",
+		"vehiculos": [
+			{
+				"cambio": "MANUAL",
+				"motor": "GASOLINA",
+				"vehiculo": "PEQUEÑO",
+				"asientos": 4,
+				"puertas": 3,
+				"precio": 56.59,
+				"modelo": "Volkswagen Up"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "ELECTRICO",
+				"vehiculo": "MEDIANO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 85.87,
+				"modelo": "Jeep Renegade"
+			},
+		
+		]
 	},
 	{
 		"direccion": "Maspalomas (playa del ingles)",

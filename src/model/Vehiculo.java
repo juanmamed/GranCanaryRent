@@ -15,10 +15,10 @@ public class Vehiculo {
     private TipoVehiculo tipoVehiculo;
     private int numAsientos;
     private int numPuertas;
-    private float precio;
+    private double precio;
     private String modelo;
 
-    public Vehiculo(TipoCambio tipoCambio, TipoMotor tipoMotor, TipoVehiculo tipoVehiculo, int numAsientos, int numPuertas, float precio, String modelo) {
+    public Vehiculo(TipoCambio tipoCambio, TipoMotor tipoMotor, TipoVehiculo tipoVehiculo, int numAsientos, int numPuertas, double precio, String modelo) {
         this.tipoCambio = tipoCambio;
         this.tipoMotor = tipoMotor;
         this.tipoVehiculo = tipoVehiculo;
@@ -48,11 +48,18 @@ public class Vehiculo {
         return numPuertas;
     }
 
-    public float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
     public String getModelo() {
         return modelo;
+    }
+    
+    @Override
+    public String toString(){
+        String result = "";
+        result += this.getModelo() + " - " + this.getPrecio();
+        return result;
     }
 }

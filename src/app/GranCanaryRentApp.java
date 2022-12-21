@@ -33,7 +33,6 @@ public class GranCanaryRentApp {
         
         for(int i=0; i<oficinas.size(); i++){
             System.out.println(oficinas.get(i).toString());
-            oficinas.get(i).loadVehiculos();
         }
         TipoCambio readyStatus = TipoCambio.valueOf("MANUAL");
         System.out.println(readyStatus.getTipoCambio());

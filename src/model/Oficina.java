@@ -56,9 +56,14 @@ public class Oficina {
         while(iterator.hasNext()){
             
             json_vehiculo = (JSONObject) iterator.next();
-            Vehiculo vehiculo = new Vehiculo();
+            Vehiculo vehiculo = new Vehiculo((TipoCambio) TipoCambio.valueOf((String) json_vehiculo.get("cambio")),
+                                             (TipoMotor) TipoMotor.valueOf((String) json_vehiculo.get("motor")),
+                                             (TipoVehiculo) TipoVehiculo.valueOf((String) json_vehiculo.get("vehiculo")),
+                                             Math.toIntExact((long) json_vehiculo.get("asientos")), 
+                                             Math.toIntExact((long) json_vehiculo.get("puertas")),
+                                            (double) json_vehiculo.get("precio"), (String) json_vehiculo.get("modelo"));
+            System.out.println(vehiculo);
             vehiculosDisponibles.add(vehiculo);
         }
-        vehiculosDisponibles.add(new Vehiculo(jsonArray));
     }
 }

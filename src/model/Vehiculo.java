@@ -55,5 +55,4 @@ public class Vehiculo {
     public String getModelo() {
         return modelo;
     }
-    
 }

@@ -24,7 +24,7 @@ public class GranCanaryRentApp {
     public static void main(String[] args) throws IOException, FileNotFoundException, ParseException {
         // TODO code application logic here
         GranCanaryRent model = new GranCanaryRent();
-        String filePath_oficinas = new File("oficinas.json").getAbsolutePath();
+        String filePath_oficinas = new File("src/data/oficinas.json").getAbsolutePath();
   
         System.out.println(filePath_oficinas);
         model.loadOficinas(filePath_oficinas);
@@ -33,6 +33,7 @@ public class GranCanaryRentApp {
         
         for(int i=0; i<oficinas.size(); i++){
             System.out.println(oficinas.get(i).toString());
+            oficinas.get(i).loadVehiculos();
         }
         TipoCambio readyStatus = TipoCambio.valueOf("MANUAL");
         System.out.println(readyStatus.getTipoCambio());

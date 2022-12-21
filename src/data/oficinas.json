@@ -1,0 +1,278 @@
+[
+	{
+		"direccion": "Aeropuerto de Gran Canaria",
+		"numero": "928579130",
+		"vehiculos": [
+			{
+				"cambio": "MANUAL",
+				"motor": "GASOLINA",
+				"vehiculo": "PEQUEÑO",
+				"asientos": 4,
+				"puertas": 3,
+				"precio": 56.59,
+				"modelo": "Volkswagen Up"
+			},
+			{
+				"cambio": "MANUAL",
+				"motor": "DIESEL",
+				"vehiculo": "PEQUEÑO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 70.89,
+				"modelo": "Seat Ibiza"
+			},
+			{
+				"cambio": "MANUAL",
+				"motor": "HIBRIDO",
+				"vehiculo": "MEDIANO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 77.96,
+				"modelo": "Fiat 500X"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "HIBRIDO",
+				"vehiculo": "MEDIANO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 90.74,
+				"modelo": "Toyota CHR Híbrido"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "GASOLINA",
+				"vehiculo": "MONOVOLUMEN",
+				"asientos": 9,
+				"puertas": 5,
+				"precio": 120.37,
+				"modelo": "Mercedes-Benz Vito"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "DIESEL",
+				"vehiculo": "MONOVOLUMEN",
+				"asientos": 7,
+				"puertas": 5,
+				"precio": 125.57,
+				"modelo": "Mercedes-Benz V-class"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "ELECTRICO",
+				"vehiculo": "GRANDE",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 150.24,
+				"modelo": "BMW iX"
+			}
+		]
+	},
+	{
+		"direccion": "Las Palmas (Triana)",
+		"numero": "928152119",
+		"vehiculos": [
+			{
+				"cambio": "MANUAL",
+				"motor": "GASOLINA",
+				"vehiculo": "PEQUEÑO",
+				"asientos": 4,
+				"puertas": 3,
+				"precio": 56.59,
+				"modelo": "Volkswagen Up"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "ELECTRICO",
+				"vehiculo": "PEQUEÑO",
+				"asientos": 4,
+				"puertas": 5,
+				"precio": 75.29,
+				"modelo": "BMW i3"
+			},
+			{
+				"cambio": "MANUAL",
+				"motor": "GASOLINA",
+				"vehiculo": "MEDIANO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 90.32,
+				"modelo": "VW T-Cross"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "DIESEL",
+				"vehiculo": "MEDIANO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 110.52,
+				"modelo": "Audi Q3"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "ELECTRICO",
+				"vehiculo": "MEDIANO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 115.87,
+				"modelo": "Jeep Renegade"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "DIESEL",
+				"vehiculo": "MONOVOLUMEN",
+				"asientos": 7,
+				"puertas": 5,
+				"precio": 125.57,
+				"modelo": "Mercedes-Benz V-class"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "HIBRIDO",
+				"vehiculo": "GRANDE",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 140.12,
+				"modelo": "BMW X2 Hybrid"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "HIBRIDO",
+				"vehiculo": "GRANDE",
+				"asientos": 4,
+				"puertas": 5,
+				"precio": 151.42,
+				"modelo": "BMW serie 6 Aut."
+			}
+		]
+	},
+	{
+		"direccion": "Maspalomas (playa del ingles)",
+		"numero": "928152119",
+		"vehiculos":[
+			{
+				"cambio": "MANUAL",
+				"motor": "GASOLINA",
+				"vehiculo": "PEQUEÑO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 66.59,
+				"modelo": "Volkswagen Polo"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "DIESEL",
+				"vehiculo": "PEQUEÑO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 78.59,
+				"modelo": "Peugeot 308 Aut."
+			},
+			{
+				"cambio": "MANUAL",
+				"motor": "GASOLINA",
+				"vehiculo": "MEDIANO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 90.32,
+				"modelo": "VW T-Cross"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "ELECTRICO",
+				"vehiculo": "MEDIANO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 100.22,
+				"modelo": "Citroen C4"
+			},
+			{
+				"cambio": "MANUAL",
+				"motor": "DIESEL",
+				"vehiculo": "MEDIANO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 107.87,
+				"modelo": "Audi Q3"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "GASOLINA",
+				"vehiculo": "MONOVOLUMEN",
+				"asientos": 9,
+				"puertas": 5,
+				"precio": 120.37,
+				"modelo": "Mercedes-Benz Vito"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "ELECTRICO",
+				"vehiculo": "GRANDE",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 150.24,
+				"modelo": "BMW iX"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "HIBRIDO",
+				"vehiculo": "GRANDE",
+				"asientos": 4,
+				"puertas": 5,
+				"precio": 151.42,
+				"modelo": "BMW serie 6 Aut."
+			}
+		]
+	},
+	{
+		"direccion": "Galdar (Cueva Pintada)",
+		"numero": "928267749",
+		"vehiculos":[
+			{
+				"cambio": "MANUAL",
+				"motor": "GASOLINA",
+				"vehiculo": "PEQUEÑO",
+				"asientos": 4,
+				"puertas": 3,
+				"precio": 56.59,
+				"modelo": "Volkswagen Up"
+			},
+			{
+				"cambio": "MANUAL",
+				"motor": "ELECTRICO",
+				"vehiculo": "PEQUEÑO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 72.29,
+				"modelo": "Volkswagen Golf"
+			},
+			{
+				"cambio": "MANUAL",
+				"motor": "GASOLINA",
+				"vehiculo": "MEDIANO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 90.32,
+				"modelo": "VW T-Cross"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "DIESEL",
+				"vehiculo": "MEDIANO",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 110.52,
+				"modelo": "Audi Q3"
+			},
+			{
+				"cambio": "AUTOMATICO",
+				"motor": "HIBRIDO",
+				"vehiculo": "GRANDE",
+				"asientos": 5,
+				"puertas": 5,
+				"precio": 140.12,
+				"modelo": "BMW X2 Hybrid"
+			}
+		]
+	}
+]

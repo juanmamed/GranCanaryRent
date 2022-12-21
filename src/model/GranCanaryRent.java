@@ -36,12 +36,14 @@ public class GranCanaryRent {
         
         JSONArray array = (JSONArray) o;
         Iterator<JSONObject> iterator = array.iterator();
-        JSONObject oficina;
-        int contador=0;
+        JSONObject json_oficina;
+
         while(iterator.hasNext()){
             
-            oficina = (JSONObject) iterator.next();
-            Oficinas.add(new Oficina((String) oficina.get("direccion"), (String) oficina.get("numero")));
+            json_oficina = (JSONObject) iterator.next();
+            Oficina oficina = new Oficina((String) json_oficina.get("direccion"), (String) json_oficina.get("numero"));
+            oficina.loadVehiculos((JSONArray) json_oficina.get("vehiculos"));
+            Oficinas.add(oficina);
         }
     }
 }

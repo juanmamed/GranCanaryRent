@@ -1,0 +1,36 @@
+[
+	{
+		"email": "usuario1@gmail.com",
+		"contraseña": "1234",
+		"nombre": "Usuario1",
+		"fechaNacimiento": "19/07/1990",
+		"prefijo": "+34",
+		"numero": "640170551",
+	
+		"TarjetaCredito": [
+			{
+				"nombrePropietario": "Salvador Sanchez Mateo",
+				"cvc": 111,
+				"numero": "5466111122223333",
+				"fechaValidez": "11/25"
+			}
+		]
+	},
+	{
+		"email": "usuario2@gmail.com",
+		"contraseña": "1234",
+		"nombre": "Usuario2",
+		"fechaNacimiento": "01/01/1980",
+		"prefijo": "+34",
+		"numero": "641170351",
+
+		"TarjetaCredito": [
+			{
+				"nombrePropietario": "Daniela Garcia Garcia",
+				"cvc": 444,
+				"numero": "5555111122226666",
+				"fechaValidez": "01/28"
+			}
+		]
+	}
+]

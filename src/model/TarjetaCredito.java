@@ -12,10 +12,10 @@ package model;
 public class TarjetaCredito {
     private String nombrePropietario;
     private int cvc;
-    private int numero;
+    private String numero;
     private String fechaValidez;
 
-    public TarjetaCredito(String nombrePropietario, int cvc, int numero, String fechaValidez) {
+    public TarjetaCredito(String nombrePropietario, int cvc, String numero, String fechaValidez) {
         this.nombrePropietario = nombrePropietario;
         this.cvc = cvc;
         this.numero = numero;
@@ -30,7 +30,7 @@ public class TarjetaCredito {
         return cvc;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
@@ -38,5 +38,10 @@ public class TarjetaCredito {
         return fechaValidez;
     }
     
+    public String toString(){
+        String result = "";
+        result += "XXXX XXXX XXXX " + this.numero.substring(12, this.numero.length());
+        return result;
+    }
     
 }

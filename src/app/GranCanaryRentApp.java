@@ -10,7 +10,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import model.GranCanaryRent;
 import model.Oficina;
+import model.TarjetaCredito;
 import model.TipoCambio;
+import model.Usuario;
 import org.json.simple.parser.ParseException;
 /**
  *
@@ -25,17 +27,24 @@ public class GranCanaryRentApp {
         // TODO code application logic here
         GranCanaryRent model = new GranCanaryRent();
         String filePath_oficinas = new File("src/data/oficinas.json").getAbsolutePath();
-  
-        System.out.println(filePath_oficinas);
+        String filePath_usuarios = new File("src/data/usuarios.json").getAbsolutePath();
+
         model.loadOficinas(filePath_oficinas);
+        model.loadUsuarios(filePath_usuarios);
         
         ArrayList<Oficina> oficinas = model.getOficinas();
+        ArrayList<Usuario> usuarios = model.getUsuarios();
         
-        for(int i=0; i<oficinas.size(); i++){
-            System.out.println(oficinas.get(i).toString());
+        for(int i=0; i<usuarios.size(); i++){
+            System.out.println(usuarios.get(i).toString() + ":");
+            ArrayList<TarjetaCredito> tarjetas = usuarios.get(i).getTarjetas();
+            for(int x=0; x<tarjetas.size(); x++){
+                System.out.println(tarjetas.get(x).toString());
+            }
         }
         TipoCambio readyStatus = TipoCambio.valueOf("MANUAL");
         System.out.println(readyStatus.getTipoCambio());
+        
     }
     
 }

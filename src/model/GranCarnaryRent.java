@@ -21,11 +21,11 @@ import org.json.simple.parser.ParseException;
  *
  * @author Juanma
  */
-public class GranCanaryRent {
+public class GranCarnaryRent {
     private ArrayList<Oficina> oficinas = new ArrayList<Oficina>();
     private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
-    public GranCanaryRent() {
+    public GranCarnaryRent() {
     }
 
     public ArrayList<Oficina> getOficinas() {

@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import model.GranCanaryRent;
+import model.GranCarnaryRent;
 import model.Oficina;
 import model.TarjetaCredito;
 import model.TipoCambio;
@@ -18,14 +18,14 @@ import org.json.simple.parser.ParseException;
  *
  * @author Juanma
  */
-public class GranCanaryRentApp {
+public class GranCarnaryRentApp {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException, FileNotFoundException, ParseException {
         // TODO code application logic here
-        GranCanaryRent model = new GranCanaryRent();
+        GranCarnaryRent model = new GranCarnaryRent();
         String filePath_oficinas = new File("src/data/oficinas.json").getAbsolutePath();
         String filePath_usuarios = new File("src/data/usuarios.json").getAbsolutePath();
 

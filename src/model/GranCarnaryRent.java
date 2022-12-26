@@ -21,6 +21,7 @@ import org.json.simple.parser.ParseException;
 public class GranCarnaryRent {
     private ArrayList<Oficina> oficinas = new ArrayList<Oficina>();
     private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    private ArrayList<Servicio> servicios = new ArrayList<Servicio>();
 
     public GranCarnaryRent() {
     }
@@ -31,6 +32,10 @@ public class GranCarnaryRent {
 
     public ArrayList<Usuario> getUsuarios() {
         return usuarios;
+    }
+    
+    public ArrayList<Servicio> getServicios() {
+        return servicios;
     }
     
     public void loadOficinas(String file) throws FileNotFoundException, IOException, ParseException{
@@ -80,6 +85,25 @@ public class GranCarnaryRent {
         }
     }
     
+    public void loadServicios(String file) throws FileNotFoundException, IOException, ParseException{
+        JSONParser parser = new JSONParser();
+
+        Object o = parser.parse(new FileReader(file));
+        
+        JSONArray array = (JSONArray) o;
+        Iterator<JSONObject> iterator = array.iterator();
+        JSONObject json_servicio;
+
+        while(iterator.hasNext()){
+            
+            json_servicio = (JSONObject) iterator.next();
+            Servicio servicio = new Servicio((String) json_servicio.get("nombre"), (String) json_servicio.get("descripcion"), (double) json_servicio.get("precio"));
+            if(existServicio(servicio.getNombreServicio()) == false){
+                servicios.add(servicio);
+            }
+        }
+    }
+    
     public boolean existOficina(String direccion){
         for(int i=0; i<oficinas.size();i++){
             if(this.oficinas.get(i).getDireccion().compareTo(direccion)==0){
@@ -92,6 +116,15 @@ public class GranCarnaryRent {
     public boolean existUsuario(String nombre, String email){
         for(int i=0; i<usuarios.size();i++){
             if(this.usuarios.get(i).getNombre().equals(nombre)| this.usuarios.get(i).getEmail().equals(email) ){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean existServicio(String nombre){
+        for(int i=0; i<servicios.size();i++){
+            if(this.servicios.get(i).getNombreServicio().compareTo(nombre)==0){
                 return true;
             }
         }

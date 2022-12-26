@@ -12,9 +12,9 @@ package model;
 public class Servicio {
     private String nombreServicio;
     private String descripcion;
-    private float precio;
+    private double precio;
 
-    public Servicio(String nombreServicio, String descripcion, float precio) {
+    public Servicio(String nombreServicio, String descripcion, double precio) {
         this.nombreServicio = nombreServicio;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -28,7 +28,7 @@ public class Servicio {
         return descripcion;
     }
 
-    public float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
     

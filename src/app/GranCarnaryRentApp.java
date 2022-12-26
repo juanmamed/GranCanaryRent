@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import model.GranCarnaryRent;
 import model.Oficina;
+import model.Servicio;
 import model.TarjetaCredito;
 import model.TipoCambio;
 import model.Usuario;
@@ -29,13 +30,16 @@ public class GranCarnaryRentApp {
         GranCarnaryRent model = new GranCarnaryRent();
         String filePath_oficinas = new File("src/data/oficinas.json").getAbsolutePath();
         String filePath_usuarios = new File("src/data/usuarios.json").getAbsolutePath();
+        String filePath_servicios = new File("src/data/servicios.json").getAbsolutePath();
+        String filePath_seguros = new File("src/data/seguros.json").getAbsolutePath();
 
         model.loadOficinas(filePath_oficinas);
         model.loadUsuarios(filePath_usuarios);
+        model.loadServicios(filePath_servicios);
         
         ArrayList<Oficina> oficinas = model.getOficinas();
         ArrayList<Usuario> usuarios = model.getUsuarios();
-        
+        ArrayList<Servicio> servicios = model.getServicios();
         PantallaInicio pi = new PantallaInicio(model);
         pi.setVisible(true);
         
@@ -46,6 +50,11 @@ public class GranCarnaryRentApp {
                 System.out.println(tarjetas.get(x).toString());
             }
         }
+        
+        for(int i=0; i<servicios.size(); i++){
+            System.out.println(servicios.get(i).getNombreServicio());
+        }
+        
         TipoCambio readyStatus = TipoCambio.valueOf("MANUAL");
         System.out.println(readyStatus.getTipoCambio());
         

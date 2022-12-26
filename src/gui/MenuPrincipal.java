@@ -26,6 +26,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     public MenuPrincipal(GranCarnaryRent granCarnaryRent, Usuario usuario) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.userLabel.setText(usuario.getNombre());
         this.userSaldoLabel.setText(Float.toString(usuario.getSaldo()));
         this.granCarnaryRent = granCarnaryRent;
@@ -128,7 +129,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void hacerReservaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hacerReservaButtonActionPerformed
-        PantallaIniciarSesion abrir = new PantallaIniciarSesion(granCarnaryRent);
+        HacerReserva1 abrir = new HacerReserva1(granCarnaryRent, user);
         abrir.setVisible(true);
 
         this.setVisible(false);

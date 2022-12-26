@@ -13,9 +13,14 @@ public class Reserva {
     private boolean pagado;
     private int id;
 
-    public Reserva() {
+    public Reserva(Oficina oficinaRecogida, Oficina oficinaEntrega, Date fechaRecogida, Date fechaEntrega) {
+        this.oficinaRecogida = oficinaRecogida;
+        this.oficinaEntrega = oficinaEntrega;
+        this.fechaRecogida = fechaRecogida;
+        this.fechaEntrega = fechaEntrega;
     }
 
+    
     public Oficina getOficinaRecogida() {
         return oficinaRecogida;
     }

@@ -22,6 +22,7 @@ public class GranCarnaryRent {
     private ArrayList<Oficina> oficinas = new ArrayList<Oficina>();
     private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
     private ArrayList<Servicio> servicios = new ArrayList<Servicio>();
+    private ArrayList<Seguro> seguros = new ArrayList<Seguro>();
 
     public GranCarnaryRent() {
     }
@@ -36,6 +37,10 @@ public class GranCarnaryRent {
     
     public ArrayList<Servicio> getServicios() {
         return servicios;
+    }
+
+    public ArrayList<Seguro> getSeguros() {
+        return seguros;
     }
     
     public void loadOficinas(String file) throws FileNotFoundException, IOException, ParseException{
@@ -104,6 +109,33 @@ public class GranCarnaryRent {
         }
     }
     
+    public void loadSeguros(String file) throws FileNotFoundException, IOException, ParseException{
+        JSONParser parser = new JSONParser();
+
+        Object o = parser.parse(new FileReader(file));
+        
+        JSONArray array = (JSONArray) o;
+        Iterator<JSONObject> iterator = array.iterator();
+        JSONObject json_seguro;
+
+        while(iterator.hasNext()){
+            
+            json_seguro = (JSONObject) iterator.next();
+            Seguro seguro = new Seguro((String) json_seguro.get("nombre"), (double) json_seguro.get("precio"));
+            if(existSeguro(seguro.getNombreSeguro()) == false){
+                JSONArray array_coberturas = (JSONArray) json_seguro.get("coberturas");
+                Iterator<JSONObject> iterator_coberturas = array_coberturas.iterator();
+                JSONObject json_coberturas;
+                while(iterator_coberturas.hasNext()){
+                    json_coberturas = (JSONObject) iterator_coberturas.next();
+                    seguro.addCobertura((String) json_coberturas.get("nombre"), (String) json_coberturas.get("descripcion"));
+                }
+                seguros.add(seguro);
+                
+            }
+        }
+    }
+    
     public boolean existOficina(String direccion){
         for(int i=0; i<oficinas.size();i++){
             if(this.oficinas.get(i).getDireccion().compareTo(direccion)==0){
@@ -125,6 +157,15 @@ public class GranCarnaryRent {
     public boolean existServicio(String nombre){
         for(int i=0; i<servicios.size();i++){
             if(this.servicios.get(i).getNombreServicio().compareTo(nombre)==0){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean existSeguro(String nombre){
+        for(int i=0; i<seguros.size();i++){
+            if(this.seguros.get(i).getNombreSeguro().compareTo(nombre)==0){
                 return true;
             }
         }

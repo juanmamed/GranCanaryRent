@@ -10,21 +10,18 @@ package model;
  * @author Juanma
  */
 public class Cobertura {
-    private float precio;
-    private String nombreSeguro;
+    private String nombreCobertura;
+    private String descripcion;
 
-    public Cobertura(float precio, String nombreSeguro) {
-        this.precio = precio;
-        this.nombreSeguro = nombreSeguro;
+    public Cobertura(String nombreCobertura, String descripcion) {
+        this.nombreCobertura = nombreCobertura;
+        this.descripcion = descripcion;
+    }
+    public String getNombreCobertura() {
+        return nombreCobertura;
     }
 
-    public float getPrecio() {
-        return precio;
+    public String getDescripcion() {
+        return descripcion;
     }
-
-    public String getNombreSeguro() {
-        return nombreSeguro;
-    }
-    
-    
 }

@@ -9,8 +9,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import model.Cobertura;
 import model.GranCarnaryRent;
 import model.Oficina;
+import model.Seguro;
 import model.Servicio;
 import model.TarjetaCredito;
 import model.TipoCambio;
@@ -36,10 +38,12 @@ public class GranCarnaryRentApp {
         model.loadOficinas(filePath_oficinas);
         model.loadUsuarios(filePath_usuarios);
         model.loadServicios(filePath_servicios);
+        model.loadSeguros(filePath_seguros);
         
         ArrayList<Oficina> oficinas = model.getOficinas();
         ArrayList<Usuario> usuarios = model.getUsuarios();
         ArrayList<Servicio> servicios = model.getServicios();
+        ArrayList<Seguro> seguros = model.getSeguros();
         PantallaInicio pi = new PantallaInicio(model);
         pi.setVisible(true);
         
@@ -53,6 +57,15 @@ public class GranCarnaryRentApp {
         
         for(int i=0; i<servicios.size(); i++){
             System.out.println(servicios.get(i).getNombreServicio());
+        }
+        
+        for(int i=0; i<seguros.size(); i++){
+            System.out.println(seguros.get(i).getNombreSeguro());
+            ArrayList<Cobertura> coberturas = seguros.get(i).getCoberturas();
+            for(int x=0; x<coberturas.size(); x++){
+                System.out.println(coberturas.get(x).getNombreCobertura());
+                
+            }
         }
         
         TipoCambio readyStatus = TipoCambio.valueOf("MANUAL");

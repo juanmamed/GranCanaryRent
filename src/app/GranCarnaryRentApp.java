@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package app;
+import gui.PantallaInicio;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -34,6 +35,9 @@ public class GranCarnaryRentApp {
         
         ArrayList<Oficina> oficinas = model.getOficinas();
         ArrayList<Usuario> usuarios = model.getUsuarios();
+        
+        PantallaInicio pi = new PantallaInicio(model);
+        pi.setVisible(true);
         
         for(int i=0; i<usuarios.size(); i++){
             System.out.println(usuarios.get(i).toString() + ":");

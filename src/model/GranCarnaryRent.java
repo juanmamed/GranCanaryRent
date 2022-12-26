@@ -5,12 +5,9 @@
  */
 package model;
 
-import java.util.ArrayList;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.simple.JSONArray;
@@ -64,15 +61,13 @@ public class GranCarnaryRent {
         JSONArray array = (JSONArray) o;
         Iterator<JSONObject> iterator = array.iterator();
         JSONObject json_usuarios;
-        DateTimeFormatter formatter;
-        formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
         while(iterator.hasNext()){
             json_usuarios = (JSONObject) iterator.next();
-            LocalDate fechaNacimiento = LocalDate.parse((String) json_usuarios.get("fechaNacimiento"), formatter);
             
-            Usuario usuario = new Usuario((String) json_usuarios.get("email"), (String) json_usuarios.get("contraseña"), (String) json_usuarios.get("nombre"), fechaNacimiento, new Telefono((String) json_usuarios.get("prefijo"), (String) json_usuarios.get("numero")));
+            Usuario usuario = new Usuario((String) json_usuarios.get("email"), (String) json_usuarios.get("contraseña"), (String) json_usuarios.get("nombre"), (String) json_usuarios.get("numero"));
             
-            if(existUsuario(usuario.getNombre()) == false){
+            if(existUsuario(usuario.getNombre(), usuario.getEmail()) == false){
                 JSONArray array_tarjetas = (JSONArray) json_usuarios.get("TarjetaCredito");
                 Iterator<JSONObject> iterator_tarjetas = array_tarjetas.iterator();
                 JSONObject json_tarjetas;
@@ -94,13 +89,33 @@ public class GranCarnaryRent {
         return false;
     }
     
-    public boolean existUsuario(String nombre){
+    public boolean existUsuario(String nombre, String email){
         for(int i=0; i<usuarios.size();i++){
-            if(this.usuarios.get(i).getNombre().compareTo(nombre)==0){
+            if(this.usuarios.get(i).getNombre().compareTo(nombre)==0 | this.usuarios.get(i).getEmail().compareTo(email)==0 ){
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean inicioUsuario(String nombre, String contraseña) {
+        for(int i=0; i<usuarios.size();i++){
+            if(this.usuarios.get(i).getNombre().compareTo(nombre)==0){
+                if (this.usuarios.get(i).getContraseña().compareTo(contraseña)==0){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean addUsuario(String nombre, String contraseña, String email, String telefono) {
+        if (existUsuario(nombre, email) == true) {
+            return false;
+        } else {
+            this.usuarios.add(new Usuario(nombre, contraseña, email, telefono));
+            return true;
+        }   
     }
     
     

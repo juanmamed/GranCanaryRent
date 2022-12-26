@@ -17,9 +17,8 @@ public class Usuario {
     private String email;
     private String contraseña;
     private String nombre;
-    private LocalDate fechaNacimiento;
     private float saldo = 0;
-    private Telefono numero;
+    private String telefono;
     private ArrayList<TarjetaCredito> tarjetas = new ArrayList<TarjetaCredito>();
     private ArrayList<Reserva> reservasRealizadas = new ArrayList<Reserva>();
 
@@ -27,12 +26,11 @@ public class Usuario {
         return reservasRealizadas;
     }
 
-    public Usuario(String email, String contraseña, String nombre, LocalDate fechaNacimiento, Telefono numero) {
+    public Usuario(String email, String contraseña, String nombre, String telefono) {
         this.email = email;
         this.contraseña = contraseña;
         this.nombre = nombre;
-        this.fechaNacimiento = fechaNacimiento;
-        this.numero = numero;
+        this.telefono = telefono;
     }
 
     public String getEmail() {
@@ -47,16 +45,13 @@ public class Usuario {
         return nombre;
     }
 
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
-    }
 
     public float getSaldo() {
         return saldo;
     }
 
-    public Telefono getNumero() {
-        return numero;
+    public String getTelefono() {
+        return telefono;
     }
 
     public ArrayList<TarjetaCredito> getTarjetas() {

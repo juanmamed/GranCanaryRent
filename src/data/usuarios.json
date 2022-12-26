@@ -3,9 +3,7 @@
 		"email": "usuario1@gmail.com",
 		"contraseña": "1234",
 		"nombre": "Usuario1",
-		"fechaNacimiento": "19/07/1990",
-		"prefijo": "+34",
-		"numero": "640170551",
+		"telefono": "640170551",
 	
 		"TarjetaCredito": [
 			{
@@ -20,9 +18,7 @@
 		"email": "usuario2@gmail.com",
 		"contraseña": "1234",
 		"nombre": "Usuario2",
-		"fechaNacimiento": "01/01/1980",
-		"prefijo": "+34",
-		"numero": "641170351",
+		"telefono": "641170351",
 
 		"TarjetaCredito": [
 			{

@@ -147,8 +147,7 @@ public class PantallaIniciarSesion extends javax.swing.JFrame {
             "Su cuenta ha iniciado sesión con éxito",
             "Éxito al iniciar sesión",
             JOptionPane.INFORMATION_MESSAGE);
-            //MenuPrincipal abrir = new MenuPrincipal(granCarnaryRent, nombre);
-            MenuPrincipal abrir = new MenuPrincipal();
+            MenuPrincipal abrir = new MenuPrincipal(granCarnaryRent, nombre);
             abrir.setVisible(true);
             this.setVisible(false);
         } else{

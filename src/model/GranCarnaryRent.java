@@ -116,5 +116,12 @@ public class GranCarnaryRent {
         }   
     }
     
-    
+    public Usuario getUsuario(String nombre) {
+       for(int i=0; i<usuarios.size();i++){
+            if(this.usuarios.get(i).getNombre().equals(nombre)){
+                return this.usuarios.get(i);
+            }
+        }
+        return null;
+    }   
 }

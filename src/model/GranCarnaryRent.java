@@ -91,7 +91,7 @@ public class GranCarnaryRent {
     
     public boolean existUsuario(String nombre, String email){
         for(int i=0; i<usuarios.size();i++){
-            if(this.usuarios.get(i).getNombre().compareTo(nombre)==0 | this.usuarios.get(i).getEmail().compareTo(email)==0 ){
+            if(this.usuarios.get(i).getNombre().equals(nombre)| this.usuarios.get(i).getEmail().equals(email) ){
                 return true;
             }
         }
@@ -100,10 +100,8 @@ public class GranCarnaryRent {
 
     public boolean inicioUsuario(String nombre, String contraseña) {
         for(int i=0; i<usuarios.size();i++){
-            if(this.usuarios.get(i).getNombre().compareTo(nombre)==0){
-                if (this.usuarios.get(i).getContraseña().compareTo(contraseña)==0){
-                    return true;
-                }
+            if(this.usuarios.get(i).getNombre().equals(nombre) && this.usuarios.get(i).getContraseña().equals(contraseña)){
+                return true;
             }
         }
         return false;
@@ -113,7 +111,7 @@ public class GranCarnaryRent {
         if (existUsuario(nombre, email) == true) {
             return false;
         } else {
-            this.usuarios.add(new Usuario(nombre, contraseña, email, telefono));
+            this.usuarios.add(new Usuario(email, contraseña, nombre, telefono));
             return true;
         }   
     }

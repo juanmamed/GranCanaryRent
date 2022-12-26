@@ -212,11 +212,11 @@ public class PantallaCrearCuenta extends javax.swing.JFrame {
             "Bienvenido a GranCarnaryRent",
             "Usuario creado con éxito",
             JOptionPane.INFORMATION_MESSAGE);
+            
+            PantallaInicio abrir = new PantallaInicio(granCarnaryRent);
+            abrir.setVisible(true);
 
-           PantallaInicio abrir = new PantallaInicio(granCarnaryRent);
-           abrir.setVisible(true);
-
-           this.setVisible(false);
+            this.setVisible(false);
         } else{
             JOptionPane.showMessageDialog(null, 
             "El nombre de usuario o el email introducido ya existe",

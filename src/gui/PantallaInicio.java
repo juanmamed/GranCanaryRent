@@ -20,10 +20,12 @@ public class PantallaInicio extends javax.swing.JFrame {
     public PantallaInicio(GranCarnaryRent granCarnaryRent) {
         initComponents();
         this.granCarnaryRent = granCarnaryRent;
+        this.setLocationRelativeTo(null);
     }
 
     private PantallaInicio() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

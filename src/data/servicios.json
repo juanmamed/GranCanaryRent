@@ -1,0 +1,32 @@
+[
+	{
+		"nombre": "Conductor adicional",
+		"descripcion": "Más de un conductor: al añadir uno o más conductores al alquiler, todos podrán beneficiarse de la cobertura por daños o por robo.",
+		"precio": 8.00
+	},
+	{
+		"nombre": "Avis GPS",
+		"descripcion": "Alquila un sistema de navegación por satélite Garmin para consultar mapas actualizados, alertas de tráfico en tiempo real y lugares de interés.",
+		"precio": 16.50
+	},
+	{
+		"nombre": "Neumaticos de invierno",
+		"descripcion": "Conduce con ese agarre tan necesario en carreteras con hielo, agua o nieve cuando las temperaturas descienden por debajo de los 7 °C.",
+		"precio": 10.09
+	},
+	{
+		"nombre": "Asistencia ampliada en carretera",
+		"descripcion": "Disfruta de tu viaje con toda tranquilidad.",
+		"precio": 3.36
+	},
+	{
+		"nombre": "Asiento para bebé",
+		"descripcion": "Esta silla de seguridad para bebés orientada hacia atrás está diseñada para pequeños de hasta 12 meses que pesen menos de 13 kg.",
+		"precio": 8.75
+	},
+	{
+		"nombre": "Travel Partner",
+		"descripcion": "Con nuestro exclusivo servicio de asistencia podrás obtener ayuda con solo una llamada.",
+		"precio": 10.66
+	}
+]

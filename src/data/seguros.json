@@ -1,0 +1,44 @@
+[
+	{
+		"nombre": "Seguro Estándar",
+		"precio": 0.00,
+		"coberturas": [
+			{
+				"nombre": "Protección por daños a la integridad del vehículo",
+				"descripcion": "Tu coche de alquiler incluye una protección que reduce a 0,00 € el coste por daños a la integridad del vehículo."
+			}
+		]
+	},
+	{
+		"nombre": "Seguro Plus",
+		"precio": 25.00,
+		"coberturas": [
+			{
+				"nombre": "Protección por daños a la integridad del vehículo",
+				"descripcion": "Tu coche de alquiler incluye una protección que reduce a 0,00 € rl coste por daños a la integridad del vehículo."
+			},
+			{
+				"nombre": "Protección por robo total o parcial del vehículo",
+				"descripcion": "Tu coche de alquiler incluye una protección que reduce a 0,00 € el coste por robo total o parcial del vehículo."
+			}
+		]
+	},
+	{
+		"nombre": "Seguro Premium",
+		"precio": 35.50,
+		"coberturas": [
+			{
+				"nombre": "Protección por daños a la integridad del vehículo",
+				"descripcion": "Tu coche de alquiler incluye una protección que reduce a 0,00 € rl coste por daños a la integridad del vehículo."
+			},
+			{
+				"nombre": "Protección por robo total o parcial del vehículo",
+				"descripcion": "Tu coche de alquiler incluye una protección que reduce a 0,00 € el coste por robo total o parcial del vehículo."
+			},
+			{
+				"nombre": "Asistencia ampliada en carretera",
+				"descripcion": "Disfruta de tu viaje con toda tranquilidad."
+			}
+		]
+	}
+]

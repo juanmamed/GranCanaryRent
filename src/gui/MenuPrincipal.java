@@ -5,17 +5,30 @@
  */
 package gui;
 
+import model.GranCarnaryRent;
+import model.Usuario;
+
 /**
  *
  * @author diego
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-
+    private GranCarnaryRent granCarnaryRent;
+    private Usuario user;
+    
     /**
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
         initComponents();
+    }
+
+    public MenuPrincipal(GranCarnaryRent granCarnaryRent, Usuario usuario) {
+        initComponents();
+        this.userLabel.setText(usuario.getNombre());
+        this.userSaldoLabel.setText(Float.toString(usuario.getSaldo()));
+        this.granCarnaryRent = granCarnaryRent;
+        this.user = usuario;
     }
 
     /**
@@ -27,21 +40,105 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        userLabel = new javax.swing.JLabel();
+        userSaldoLabel = new javax.swing.JLabel();
+        hacerReservaButton = new javax.swing.JButton();
+        verReservaButton = new javax.swing.JButton();
+        verReservaButton1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Lucida Handwriting", 1, 24)); // NOI18N
+        jLabel1.setText("GranCarnaryRent");
+
+        userLabel.setText("User");
+
+        userSaldoLabel.setText("User saldo");
+
+        hacerReservaButton.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
+        hacerReservaButton.setText("Hacer reserva");
+        hacerReservaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hacerReservaButtonActionPerformed(evt);
+            }
+        });
+
+        verReservaButton.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
+        verReservaButton.setText("Ver reservas");
+        verReservaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verReservaButtonActionPerformed(evt);
+            }
+        });
+
+        verReservaButton1.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
+        verReservaButton1.setText("Ver tarjetas");
+        verReservaButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verReservaButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabel1)
+                        .addGap(0, 64, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(userLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(userSaldoLabel)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(hacerReservaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(verReservaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(verReservaButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(125, 125, 125))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userLabel)
+                    .addComponent(userSaldoLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addComponent(hacerReservaButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(verReservaButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(verReservaButton1)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void hacerReservaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hacerReservaButtonActionPerformed
+        PantallaIniciarSesion abrir = new PantallaIniciarSesion(granCarnaryRent);
+        abrir.setVisible(true);
+
+        this.setVisible(false);
+    }//GEN-LAST:event_hacerReservaButtonActionPerformed
+
+    private void verReservaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReservaButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verReservaButtonActionPerformed
+
+    private void verReservaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReservaButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verReservaButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +176,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton hacerReservaButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel userLabel;
+    private javax.swing.JLabel userSaldoLabel;
+    private javax.swing.JButton verReservaButton;
+    private javax.swing.JButton verReservaButton1;
     // End of variables declaration//GEN-END:variables
 }

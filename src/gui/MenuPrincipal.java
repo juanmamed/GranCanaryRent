@@ -21,6 +21,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     public MenuPrincipal(GranCarnaryRent granCarnaryRent, Usuario usuario) {
@@ -29,6 +30,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.userSaldoLabel.setText(Float.toString(usuario.getSaldo()));
         this.granCarnaryRent = granCarnaryRent;
         this.user = usuario;
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -45,7 +47,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         userSaldoLabel = new javax.swing.JLabel();
         hacerReservaButton = new javax.swing.JButton();
         verReservaButton = new javax.swing.JButton();
-        verReservaButton1 = new javax.swing.JButton();
+        verTarjetasButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,11 +74,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        verReservaButton1.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
-        verReservaButton1.setText("Ver tarjetas");
-        verReservaButton1.addActionListener(new java.awt.event.ActionListener() {
+        verTarjetasButton.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
+        verTarjetasButton.setText("Ver tarjetas");
+        verTarjetasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verReservaButton1ActionPerformed(evt);
+                verTarjetasButtonActionPerformed(evt);
             }
         });
 
@@ -101,7 +103,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(hacerReservaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(verReservaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(verReservaButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(verTarjetasButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(125, 125, 125))
         );
         layout.setVerticalGroup(
@@ -118,7 +120,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(verReservaButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(verReservaButton1)
+                .addComponent(verTarjetasButton)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -136,9 +138,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_verReservaButtonActionPerformed
 
-    private void verReservaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReservaButton1ActionPerformed
+    private void verTarjetasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verTarjetasButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_verReservaButton1ActionPerformed
+        PantallaVerTarjetas abrir = new PantallaVerTarjetas(this.granCarnaryRent, this.user);
+        abrir.setVisible(true);
+
+        this.setVisible(false);
+    }//GEN-LAST:event_verTarjetasButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +187,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel userLabel;
     private javax.swing.JLabel userSaldoLabel;
     private javax.swing.JButton verReservaButton;
-    private javax.swing.JButton verReservaButton1;
+    private javax.swing.JButton verTarjetasButton;
     // End of variables declaration//GEN-END:variables
 }

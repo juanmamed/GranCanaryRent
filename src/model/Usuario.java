@@ -58,10 +58,27 @@ public class Usuario {
         return tarjetas;
     }
     
+    public String[] getTarjetasArr(){
+        String[] arr = new String[tarjetas.size()];
+        for (int i=0; i<tarjetas.size(); i++){
+            arr[i] = tarjetas.get(i).toString();
+        }
+        return arr;
+    }
+    
     public void addCreditCard(String nombrePropietario, int cvc, String numero, String fechaValidez){
         if (this.tarjetas.size() < 3){
             TarjetaCredito tarjeta = new TarjetaCredito(nombrePropietario, cvc, numero, fechaValidez);
             this.tarjetas.add(tarjeta);
+        }
+    }
+    
+    public void deleteCreditCard(TarjetaCredito tarjeta){
+        for(int i=0; i<this.tarjetas.size(); i++){
+            if(this.tarjetas.get(i).toString().equals(tarjeta.toString())){
+                this.tarjetas.remove(tarjeta);
+                break;
+            }
         }
     }
     

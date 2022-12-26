@@ -44,7 +44,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="hacerReservaButton" max="32767" attributes="0"/>
                   <Component id="verReservaButton" max="32767" attributes="0"/>
-                  <Component id="verReservaButton1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="verTarjetasButton" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
           </Group>
@@ -65,7 +65,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="verReservaButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="verReservaButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="verTarjetasButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="28" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -112,7 +112,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verReservaButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="verReservaButton1">
+    <Component class="javax.swing.JButton" name="verTarjetasButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Yu Gothic" size="18" style="0"/>
@@ -120,7 +120,7 @@
         <Property name="text" type="java.lang.String" value="Ver tarjetas"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verReservaButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verTarjetasButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

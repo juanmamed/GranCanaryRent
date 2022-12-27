@@ -13,7 +13,7 @@ public class Reserva {
     private Vehiculo vehiculoReservado;
     private Seguro seguroSeleccionado;
     private ArrayList<Servicio> serviciosSeleccionados;
-    private float precio;
+    private double precio;
     private boolean pagado;
     private int id;
 
@@ -24,7 +24,7 @@ public class Reserva {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public Reserva(Oficina oficinaRecogida, Oficina oficinaEntrega, Date fechaRecogida, Date fechaEntrega, Vehiculo vehiculoReservado, Seguro seguroSeleccionado, float precio, boolean pagado, int id) {
+    public Reserva(Oficina oficinaRecogida, Oficina oficinaEntrega, Date fechaRecogida, Date fechaEntrega, Vehiculo vehiculoReservado, Seguro seguroSeleccionado, double precio, boolean pagado, int id) {
         this.oficinaRecogida = oficinaRecogida;
         this.oficinaEntrega = oficinaEntrega;
         this.fechaRecogida = fechaRecogida;
@@ -53,7 +53,7 @@ public class Reserva {
         return fechaEntrega;
     }
 
-    public float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
@@ -107,7 +107,7 @@ public class Reserva {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 

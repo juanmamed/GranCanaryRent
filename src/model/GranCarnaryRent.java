@@ -66,7 +66,7 @@ public class GranCarnaryRent {
         }
     }
     
-    public void loadUsuarios(String file) throws FileNotFoundException, IOException, ParseException{
+    public void loadUsuarios(String file) throws FileNotFoundException, IOException, ParseException, java.text.ParseException{
         JSONParser parser = new JSONParser();
 
         Object o = parser.parse(new FileReader(file));
@@ -89,12 +89,21 @@ public class GranCarnaryRent {
                     usuario.addCreditCard((String) json_tarjetas.get("nombrePropietario"), Math.toIntExact((long) json_tarjetas.get("cvc")), (String) json_tarjetas.get("numero"), (String) json_tarjetas.get("fechaValidez"));
                 }
                 JSONArray array_reservas = (JSONArray) json_usuarios.get("Reservas");
-                Iterator<JSONObject> iterator_reservas = array_tarjetas.iterator();
+                Iterator<JSONObject> iterator_reservas = array_reservas.iterator();
                 JSONObject json_reservas;
-                //while(iterator_reservas.hasNext()){
-                //    json_reservas = (JSONObject) iterator_reservas.next();
-                //    Reserva reserva = new Reserva();
-                //}
+                while(iterator_reservas.hasNext()){
+                    json_reservas = (JSONObject) iterator_reservas.next();
+                    Oficina oficina_recogida = this.getOficina((String) json_reservas.get("oficinaRecogida"));
+                    Oficina oficina_entrega = this.getOficina((String) json_reservas.get("oficinaEntrega"));
+                    Date fecha_recogida = this.getDate((String) json_reservas.get("fechaRecogida"));
+                    Date fecha_entrega = this.getDate((String) json_reservas.get("fechaEntrega"));
+                    Vehiculo vehiculo = this.getVehiculo((String) json_reservas.get("oficinaRecogida"), (String) json_reservas.get("vehiculo"));
+                    Seguro seguro = this.getSeguro((String) json_reservas.get("Seguro"));
+                    numReservas++;
+                    Reserva reserva = new Reserva(oficina_recogida, oficina_entrega, fecha_recogida, fecha_entrega, vehiculo, seguro, (double) json_reservas.get("precio"),(boolean) json_reservas.get("pagado"), numReservas);
+                    usuario.addReserva(reserva);
+                    System.out.println(reserva.getOficinaRecogida().getDireccion());
+                }
                 usuarios.add(usuario);
             }
         }
@@ -219,7 +228,7 @@ public class GranCarnaryRent {
     }
     
     public Date getDate(String fecha) throws java.text.ParseException{
-        Date date =new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
+        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
         return date;
     }
     

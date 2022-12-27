@@ -12,6 +12,30 @@
 				"numero": "5466111122223333",
 				"fechaValidez": "11/25"
 			}
+		],
+		
+		"Reservas": [
+			{
+				"oficinaRecogida": "Aeropuerto de Gran Canaria",
+				"oficinaEntrega": "Las Palmas (Triana)",
+				"fechaRecogida": "31/12/2022",
+				"fechaEntrega": "02/01/2023",
+				"vehiculo": "Volkswagen Up",
+				"Seguro": "Seguro Estándar",
+				"precio": 150.00,
+				"pagado": false
+			},
+			
+			{
+				"oficinaRecogida": "Las Palmas (Triana)",
+				"oficinaEntrega": "Galdar (Cueva Pintada)",
+				"fechaRecogida": "01/12/2022",
+				"fechaEntrega": "07/12/2022",
+				"vehiculo": "Volkswagen Golf",
+				"Seguro": "Seguro Estándar",
+				"precio": 300.00,
+				"pagado": true
+			}
 		]
 	},
 	{
@@ -26,6 +50,19 @@
 				"cvc": 444,
 				"numero": "5555111122226666",
 				"fechaValidez": "01/28"
+			}
+		],
+		
+		"Reservas": [
+			{
+				"oficinaRecogida": "Las Palmas (Triana)",
+				"oficinaEntrega": "Galdar (Cueva Pintada)",
+				"fechaRecogida": "03/12/2022",
+				"fechaEntrega": "07/12/2022",
+				"vehiculo": "Audi Q3",
+				"Seguro": "Seguro Estándar",
+				"precio": 400.00,
+				"pagado": true
 			}
 		]
 	}

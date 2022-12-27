@@ -22,10 +22,6 @@ public class Usuario {
     private ArrayList<TarjetaCredito> tarjetas = new ArrayList<TarjetaCredito>();
     private ArrayList<Reserva> reservasRealizadas = new ArrayList<Reserva>();
 
-    public ArrayList<Reserva> getReservasRealizadas() {
-        return reservasRealizadas;
-    }
-
     public Usuario(String email, String contraseña, String nombre, String telefono) {
         this.email = email;
         this.contraseña = contraseña;
@@ -65,6 +61,10 @@ public class Usuario {
         }
         return arr;
     }
+
+    public ArrayList<Reserva> getReservasRealizadas() {
+        return reservasRealizadas;
+    }
     
     public void addCreditCard(String nombrePropietario, int cvc, String numero, String fechaValidez){
         if (this.tarjetas.size() < 3){
@@ -80,6 +80,10 @@ public class Usuario {
                 break;
             }
         }
+    }
+    
+    public void addReserva(Reserva r){
+        this.reservasRealizadas.add(r);
     }
     
     @Override

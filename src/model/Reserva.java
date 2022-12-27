@@ -24,6 +24,18 @@ public class Reserva {
         this.fechaEntrega = fechaEntrega;
     }
 
+    public Reserva(Oficina oficinaRecogida, Oficina oficinaEntrega, Date fechaRecogida, Date fechaEntrega, Vehiculo vehiculoReservado, Seguro seguroSeleccionado, float precio, boolean pagado, int id) {
+        this.oficinaRecogida = oficinaRecogida;
+        this.oficinaEntrega = oficinaEntrega;
+        this.fechaRecogida = fechaRecogida;
+        this.fechaEntrega = fechaEntrega;
+        this.vehiculoReservado = vehiculoReservado;
+        this.seguroSeleccionado = seguroSeleccionado;
+        this.precio = precio;
+        this.pagado = pagado;
+        this.id = id;
+    }
+
     
     public Oficina getOficinaRecogida() {
         return oficinaRecogida;

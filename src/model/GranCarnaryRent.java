@@ -8,7 +8,9 @@ package model;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -23,6 +25,7 @@ public class GranCarnaryRent {
     private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
     private ArrayList<Servicio> servicios = new ArrayList<Servicio>();
     private ArrayList<Seguro> seguros = new ArrayList<Seguro>();
+    private int numReservas = 0;
 
     public GranCarnaryRent() {
     }
@@ -85,6 +88,13 @@ public class GranCarnaryRent {
                     json_tarjetas = (JSONObject) iterator_tarjetas.next();
                     usuario.addCreditCard((String) json_tarjetas.get("nombrePropietario"), Math.toIntExact((long) json_tarjetas.get("cvc")), (String) json_tarjetas.get("numero"), (String) json_tarjetas.get("fechaValidez"));
                 }
+                JSONArray array_reservas = (JSONArray) json_usuarios.get("Reservas");
+                Iterator<JSONObject> iterator_reservas = array_tarjetas.iterator();
+                JSONObject json_reservas;
+                //while(iterator_reservas.hasNext()){
+                //    json_reservas = (JSONObject) iterator_reservas.next();
+                //    Reserva reserva = new Reserva();
+                //}
                 usuarios.add(usuario);
             }
         }
@@ -197,5 +207,38 @@ public class GranCarnaryRent {
             }
         }
         return null;
-    }   
+    }
+    
+    public Oficina getOficina(String direccion) {
+        for(int i=0; i<oficinas.size();i++){
+            if(this.oficinas.get(i).getDireccion().equals(direccion)){
+                return this.oficinas.get(i);
+            }
+        }
+        return null;
+    }
+    
+    public Date getDate(String fecha) throws java.text.ParseException{
+        Date date =new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
+        return date;
+    }
+    
+    public Vehiculo getVehiculo(String dir_oficina, String vehiculo){
+        Oficina oficina = getOficina(dir_oficina);
+        for(int i=0; i<oficina.getVehiculosDisponibles().size();i++){
+            if(oficina.getVehiculosDisponibles().get(i).getModelo().equals(vehiculo)){
+                return oficina.getVehiculosDisponibles().get(i);
+            }
+        }
+        return null;
+    }
+    
+    public Seguro getSeguro(String nombre){
+        for(int i=0; i<seguros.size();i++){
+            if(this.seguros.get(i).getNombreSeguro().equals(nombre)){
+                return this.seguros.get(i);
+            }
+        }
+        return null;
+    }
 }

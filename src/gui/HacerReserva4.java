@@ -265,7 +265,7 @@ public class HacerReserva4 extends javax.swing.JFrame {
         });
 
         continuarButton.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
-        continuarButton.setText("Continuar");
+        continuarButton.setText("Confirmar reserva");
         continuarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 continuarButtonActionPerformed(evt);
@@ -305,7 +305,7 @@ public class HacerReserva4 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(volverButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                         .addComponent(continuarButton))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,7 +322,7 @@ public class HacerReserva4 extends javax.swing.JFrame {
                             .addComponent(jButton4)
                             .addComponent(jButton5)
                             .addComponent(jButton6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(precioLabel1)
                             .addComponent(precioLabel2)
@@ -397,7 +397,29 @@ public class HacerReserva4 extends javax.swing.JFrame {
     }//GEN-LAST:event_volverButtonActionPerformed
 
     private void continuarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarButtonActionPerformed
-        HacerReserva4 abrir = new HacerReserva4(this.granCarnaryRent, this.user, this.reserva, this.numDias, this.currentPrecio);
+        ArrayList<Servicio> serviciosExtra = new ArrayList<Servicio>();
+        if (jCheckBox1.isSelected()){
+            serviciosExtra.add(servicios.get(0));
+        }
+        if (jCheckBox2.isSelected()){
+            serviciosExtra.add(servicios.get(1));
+        }
+        if (jCheckBox3.isSelected()){
+            serviciosExtra.add(servicios.get(2));
+        }
+        if (jCheckBox4.isSelected()){
+            serviciosExtra.add(servicios.get(3));
+        }
+        if (jCheckBox5.isSelected()){
+            serviciosExtra.add(servicios.get(4));
+        }
+        if (jCheckBox6.isSelected()){
+            serviciosExtra.add(servicios.get(5));
+        }
+        this.reserva.setServiciosSeleccionados(serviciosExtra);
+        this.reserva.setPrecio(currentPrecio);
+        this.reserva.setId(this.user.getReservasRealizadas().size() + 1);
+        ResumenReserva abrir = new ResumenReserva(this.granCarnaryRent, this.user, this.reserva);
         abrir.setVisible(true);
 
         this.setVisible(false);

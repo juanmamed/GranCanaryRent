@@ -56,8 +56,7 @@ public class HacerReserva2 extends javax.swing.JFrame {
         tipoMotorLabel.setText(vehiculos.get(0).getTipoMotor().toString());
         numAsientosLabel.setText(Integer.toString(vehiculos.get(0).getNumAsientos()));
         numPuertasLabel.setText(Integer.toString(vehiculos.get(0).getNumPuertas()));
-        String result = String.format("%.2f", vehiculos.get(0).getPrecio() * numDias);
-        result += " euros";
+        String result = String.format("%.2f €", vehiculos.get(0).getPrecio() * numDias);
         precioLabel.setText(result);
         
         jList1.addListSelectionListener(new ListSelectionListener(){

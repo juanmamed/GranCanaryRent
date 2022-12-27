@@ -28,7 +28,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="volverButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="104" max="32767" attributes="0"/>
                       <Component id="continuarButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -47,7 +47,7 @@
                           <Component id="jButton5" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton6" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="130" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="precioLabel1" min="-2" max="-2" attributes="0"/>
                           <Component id="precioLabel2" min="-2" max="-2" attributes="0"/>
@@ -291,7 +291,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Console" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Continuar"/>
+        <Property name="text" type="java.lang.String" value="Confirmar reserva"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="continuarButtonActionPerformed"/>

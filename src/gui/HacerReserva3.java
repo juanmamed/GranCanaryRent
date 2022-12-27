@@ -92,7 +92,7 @@ public class HacerReserva3 extends javax.swing.JFrame {
         estandarButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                String result = String.format("Subtotal %.2f €", subtotalEstandar);
+                String result = String.format("Subtotal: %.2f €", subtotalEstandar);
                 subtotalLabel.setText(result);
                 seguroSeleccionado = seguros.get(0);
             }
@@ -101,7 +101,7 @@ public class HacerReserva3 extends javax.swing.JFrame {
         plusButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                String result = String.format("Subtotal %.2f €", subtotalPlus);
+                String result = String.format("Subtotal: %.2f €", subtotalPlus);
                 subtotalLabel.setText(result);
                 seguroSeleccionado = seguros.get(1);
             }
@@ -110,7 +110,7 @@ public class HacerReserva3 extends javax.swing.JFrame {
         premiumButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                String result = String.format("Subtotal %.2f €", subtotalPremium);
+                String result = String.format("Subtotal: %.2f €", subtotalPremium);
                 subtotalLabel.setText(result);
                 seguroSeleccionado = seguros.get(2);
             }

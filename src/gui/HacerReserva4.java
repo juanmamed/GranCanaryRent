@@ -27,7 +27,7 @@ public class HacerReserva4 extends javax.swing.JFrame {
     private Reserva reserva;
     private int numDias;
     private ArrayList<Servicio> servicios;
-    private double lastPrecio;
+    private double rollbackPrecio;
     private double currentPrecio;
 
     /**
@@ -37,13 +37,13 @@ public class HacerReserva4 extends javax.swing.JFrame {
         initComponents();
     }
 
-    public HacerReserva4(GranCarnaryRent granCarnaryRent, Usuario user, Reserva reserva, int numDias, double lastPrecio) {
+    public HacerReserva4(GranCarnaryRent granCarnaryRent, Usuario user, Reserva reserva, int numDias, double precio) {
         this.granCarnaryRent = granCarnaryRent;
         this.user = user;
         this.reserva = reserva;
         this.numDias = numDias;
-        this.lastPrecio = lastPrecio;
-        this.currentPrecio = lastPrecio;
+        this.rollbackPrecio = precio - (reserva.getSeguroSeleccionado().getPrecio() * numDias);
+        this.currentPrecio = precio;
         this.servicios = this.granCarnaryRent.getServicios();
         initComponents();
         this.setLocationRelativeTo(null);
@@ -68,7 +68,7 @@ public class HacerReserva4 extends javax.swing.JFrame {
         result = String.format("+ %.2f €", servicios.get(5).getPrecio() * numDias);
         precioLabel6.setText(result);
         
-        result = String.format("Subtotal: %.2f €", lastPrecio);
+        result = String.format("Subtotal: %.2f €", currentPrecio);
         subtotalLabel.setText(result);
         
         jCheckBox1.addActionListener(new ActionListener() {
@@ -390,7 +390,7 @@ public class HacerReserva4 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
-        HacerReserva3 abrir = new HacerReserva3(this.granCarnaryRent, this.user, this.reserva, this.numDias, this.lastPrecio);
+        HacerReserva3 abrir = new HacerReserva3(this.granCarnaryRent, this.user, this.reserva, this.numDias, this.rollbackPrecio);
         abrir.setVisible(true);
 
         this.setVisible(false);

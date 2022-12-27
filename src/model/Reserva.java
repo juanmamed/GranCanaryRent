@@ -22,6 +22,7 @@ public class Reserva {
         this.oficinaEntrega = oficinaEntrega;
         this.fechaRecogida = fechaRecogida;
         this.fechaEntrega = fechaEntrega;
+        this.pagado = false;
     }
 
     public Reserva(Oficina oficinaRecogida, Oficina oficinaEntrega, Date fechaRecogida, Date fechaEntrega, Vehiculo vehiculoReservado, Seguro seguroSeleccionado, double precio, boolean pagado, int id) {
@@ -133,18 +134,22 @@ public class Reserva {
             return result;
         }
         for(int i=0; i<this.serviciosSeleccionados.size(); i++){
-            result += this.serviciosSeleccionados.get(i).getNombreServicio() + ",";
+            result += this.serviciosSeleccionados.get(i).getNombreServicio();
+            if (i+1>=this.serviciosSeleccionados.size()){
+                break;
+            }
+            result += ", ";
         }
-        return result.substring(result.length()-1);
+        return result;
     }
     
     public String toStringEstado(){
         String result = "";
         if (this.isPagado()){
             result = "Pagado";
-            return result;
+        }else {
+            result = "Sin Pagar";
         }
-        result = "Sin Pagar";
         return result;
     }
 }

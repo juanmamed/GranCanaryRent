@@ -251,6 +251,7 @@ public class ResumenReserva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void pagarDespuesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagarDespuesButtonActionPerformed
+        this.user.addReserva(reserva);
         MenuPrincipal abrir = new MenuPrincipal(this.granCarnaryRent, this.user);
         abrir.setVisible(true);
 

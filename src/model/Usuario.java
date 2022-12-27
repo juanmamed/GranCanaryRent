@@ -82,8 +82,12 @@ public class Usuario {
             }
         }
         String[] arr = new String[contador];
-        for (int i=0; i<arr.length; i++){
-            arr[i] = reservasRealizadas.get(i).toString();
+        contador = 0;
+        for (int i=0; i<reservasRealizadas.size(); i++){
+            if (reservasRealizadas.get(i).isPagado() == false){
+                arr[contador] = reservasRealizadas.get(i).toString();
+                contador++;
+            }
         }
         return arr;
     }

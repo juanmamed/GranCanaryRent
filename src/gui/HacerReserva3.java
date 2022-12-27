@@ -5,8 +5,13 @@
  */
 package gui;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import model.Cobertura;
 import model.GranCarnaryRent;
 import model.Reserva;
+import model.Seguro;
 import model.Usuario;
 
 /**
@@ -15,6 +20,15 @@ import model.Usuario;
  */
 public class HacerReserva3 extends javax.swing.JFrame {
 
+    private GranCarnaryRent granCarnaryRent;
+    private Usuario user;
+    private Reserva reserva;
+    private int numDias;
+    private ArrayList<Seguro> seguros;
+    private ArrayList<Cobertura> coberturasEstandar;
+    private ArrayList<Cobertura> coberturasPlus;
+    private ArrayList<Cobertura> coberturasPremium;
+
     /**
      * Creates new form HacerReserva3
      */
@@ -22,8 +36,37 @@ public class HacerReserva3 extends javax.swing.JFrame {
         initComponents();
     }
 
-    HacerReserva3(GranCarnaryRent granCarnaryRent, Usuario user, Reserva reserva) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    HacerReserva3(GranCarnaryRent granCarnaryRent, Usuario user, Reserva reserva, int numDias) {
+        this.granCarnaryRent = granCarnaryRent;
+        this.user = user;
+        this.reserva = reserva;
+        this.numDias = numDias;
+        this.seguros = granCarnaryRent.getSeguros();
+        this.coberturasEstandar = seguros.get(0).getCoberturas();
+        this.coberturasPlus = seguros.get(1).getCoberturas();
+        this.coberturasPremium = seguros.get(2).getCoberturas();
+        initComponents();
+        this.setLocationRelativeTo(null);
+        
+        estandarButton.setText(seguros.get(0).getNombreSeguro());
+        plusButton.setText(seguros.get(1).getNombreSeguro());
+        premiumButton.setText(seguros.get(2).getNombreSeguro());
+        
+        DefaultComboBoxModel estandarListModel = new DefaultComboBoxModel();
+        for(int i=0; i<coberturasEstandar.size();i++){
+            estandarListModel.addElement(coberturasEstandar.get(i).getNombreCobertura());
+        }
+        DefaultComboBoxModel plusListModel = new DefaultComboBoxModel();
+        for(int i=0; i<coberturasPlus.size();i++){
+            plusListModel.addElement(coberturasPlus.get(i).getNombreCobertura());
+        }
+        DefaultComboBoxModel premiumListModel = new DefaultComboBoxModel();
+        for(int i=0; i<coberturasEstandar.size();i++){
+            premiumListModel.addElement(coberturasEstandar.get(i).getNombreCobertura());
+        }
+        estandarList.setModel(estandarListModel);
+        plusList.setModel(plusListModel);
+        premiumList.setModel(premiumListModel);
     }
 
     /**
@@ -35,21 +78,269 @@ public class HacerReserva3 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jLabel5 = new javax.swing.JLabel();
+        estandarButton = new javax.swing.JRadioButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        estandarList = new javax.swing.JList<>();
+        plusButton = new javax.swing.JRadioButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        plusList = new javax.swing.JList<>();
+        premiumButton = new javax.swing.JRadioButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        premiumList = new javax.swing.JList<>();
+        infoEstandar = new javax.swing.JButton();
+        infoPlus = new javax.swing.JButton();
+        infoPremium = new javax.swing.JButton();
+        volverButton = new javax.swing.JButton();
+        continuarButton = new javax.swing.JButton();
+        subtotalLabel = new javax.swing.JLabel();
+        estandarPrecio = new javax.swing.JLabel();
+        plusPrecio = new javax.swing.JLabel();
+        premiumPrecio = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel5.setFont(new java.awt.Font("Malgun Gothic", 1, 22)); // NOI18N
+        jLabel5.setText("SELECCIONE UN SEGURO");
+
+        buttonGroup1.add(estandarButton);
+        estandarButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        estandarButton.setSelected(true);
+        estandarButton.setText("jRadioButton1");
+
+        estandarList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(estandarList);
+
+        buttonGroup1.add(plusButton);
+        plusButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        plusButton.setText("jRadioButton2");
+
+        plusList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(plusList);
+
+        buttonGroup1.add(premiumButton);
+        premiumButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        premiumButton.setText("jRadioButton3");
+        premiumButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                premiumButtonActionPerformed(evt);
+            }
+        });
+
+        premiumList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(premiumList);
+
+        infoEstandar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        infoEstandar.setText("Info cobertura");
+        infoEstandar.setMargin(new java.awt.Insets(1, 12, 1, 12));
+        infoEstandar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoEstandarActionPerformed(evt);
+            }
+        });
+
+        infoPlus.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        infoPlus.setText("Info cobertura");
+        infoPlus.setMargin(new java.awt.Insets(1, 12, 1, 12));
+        infoPlus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoPlusActionPerformed(evt);
+            }
+        });
+
+        infoPremium.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        infoPremium.setText("Info cobertura");
+        infoPremium.setMargin(new java.awt.Insets(1, 12, 1, 12));
+        infoPremium.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoPremiumActionPerformed(evt);
+            }
+        });
+
+        volverButton.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
+        volverButton.setText("Volver");
+        volverButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverButtonActionPerformed(evt);
+            }
+        });
+
+        continuarButton.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
+        continuarButton.setText("Continuar");
+        continuarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                continuarButtonActionPerformed(evt);
+            }
+        });
+
+        subtotalLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        subtotalLabel.setText("jLabel1");
+
+        estandarPrecio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        estandarPrecio.setForeground(new java.awt.Color(102, 102, 102));
+        estandarPrecio.setText("jLabel1");
+
+        plusPrecio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        plusPrecio.setForeground(new java.awt.Color(102, 102, 102));
+        plusPrecio.setText("jLabel1");
+
+        premiumPrecio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        premiumPrecio.setForeground(new java.awt.Color(102, 102, 102));
+        premiumPrecio.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(volverButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(continuarButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(plusButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(plusPrecio))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(premiumButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(premiumPrecio))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(infoEstandar)
+                            .addComponent(infoPlus)
+                            .addComponent(infoPremium))
+                        .addGap(0, 12, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(subtotalLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(estandarButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(estandarPrecio)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(estandarButton)
+                    .addComponent(estandarPrecio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(infoEstandar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(plusButton)
+                    .addComponent(plusPrecio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(infoPlus)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(premiumButton)
+                    .addComponent(premiumPrecio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(infoPremium)
+                        .addGap(11, 11, 11)
+                        .addComponent(subtotalLabel)
+                        .addGap(0, 15, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(continuarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(volverButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void infoEstandarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoEstandarActionPerformed
+        if (estandarList.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(null, 
+                "Seleccione la cobertura de la cual quiera saber más detalles", 
+                "No ha seleccionado conbertura",
+                JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, 
+                coberturasEstandar.get(estandarList.getSelectedIndex()).getDescripcion(), 
+                coberturasEstandar.get(estandarList.getSelectedIndex()).getNombreCobertura(),
+                JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_infoEstandarActionPerformed
+
+    private void premiumButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_premiumButtonActionPerformed
+        
+    }//GEN-LAST:event_premiumButtonActionPerformed
+
+    private void infoPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoPlusActionPerformed
+        if (plusList.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(null, 
+                "Seleccione la cobertura de la cual quiera saber más detalles", 
+                "No ha seleccionado conbertura",
+                JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, 
+                coberturasPlus.get(plusList.getSelectedIndex()).getDescripcion(), 
+                coberturasPlus.get(plusList.getSelectedIndex()).getNombreCobertura(),
+                JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_infoPlusActionPerformed
+
+    private void infoPremiumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoPremiumActionPerformed
+        if (premiumList.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(null, 
+                "Seleccione la cobertura de la cual quiera saber más detalles", 
+                "No ha seleccionado conbertura",
+                JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, 
+                coberturasPremium.get(premiumList.getSelectedIndex()).getDescripcion(), 
+                coberturasPremium.get(premiumList.getSelectedIndex()).getNombreCobertura(),
+                JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_infoPremiumActionPerformed
+
+    private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
+        HacerReserva2 abrir = new HacerReserva2(this.granCarnaryRent, this.user, this.reserva);
+        abrir.setVisible(true);
+
+        this.setVisible(false);
+    }//GEN-LAST:event_volverButtonActionPerformed
+
+    private void continuarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarButtonActionPerformed
+
+        
+    }//GEN-LAST:event_continuarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -87,5 +378,25 @@ public class HacerReserva3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton continuarButton;
+    private javax.swing.JRadioButton estandarButton;
+    private javax.swing.JList<String> estandarList;
+    private javax.swing.JLabel estandarPrecio;
+    private javax.swing.JButton infoEstandar;
+    private javax.swing.JButton infoPlus;
+    private javax.swing.JButton infoPremium;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JRadioButton plusButton;
+    private javax.swing.JList<String> plusList;
+    private javax.swing.JLabel plusPrecio;
+    private javax.swing.JRadioButton premiumButton;
+    private javax.swing.JList<String> premiumList;
+    private javax.swing.JLabel premiumPrecio;
+    private javax.swing.JLabel subtotalLabel;
+    private javax.swing.JButton volverButton;
     // End of variables declaration//GEN-END:variables
 }

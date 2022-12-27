@@ -40,7 +40,7 @@ public class HacerReserva1 extends javax.swing.JFrame {
         Date currentDay = new java.util.Date(System.currentTimeMillis());
         fechaRecogida.setDate(new java.util.Date(currentDay.getTime() + (1000 * 60 * 60 * 24)));
         fechaEntrega.setDate(new java.util.Date(currentDay.getTime() + (2000 * 60 * 60 * 24)));
-        
+
         DefaultComboBoxModel list = new DefaultComboBoxModel();
         ArrayList<Oficina> oficinas = granCarnaryRent.getOficinas();
         for(int i=0; i<oficinas.size();i++){
@@ -54,8 +54,7 @@ public class HacerReserva1 extends javax.swing.JFrame {
         fechaRecogida.getDateEditor().addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent e) {
-                fechaEntrega.setMinSelectableDate(fechaRecogida.getDate());
-                fechaEntrega.setDate(new java.util.Date(fechaRecogida.getDate().getTime() + (1000 * 60 * 60 * 24)));
+                fechaEntrega.setMinSelectableDate(new java.util.Date(fechaRecogida.getDate().getTime() + (1000 * 60 * 60 * 24)));
             }
         });
     }
@@ -88,11 +87,11 @@ public class HacerReserva1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         fechaRecogida.setDateFormatString("dd/MM/yyyy");
-        fechaRecogida.setMinSelectableDate(new java.util.Date(System.currentTimeMillis()));
+        fechaRecogida.setMinSelectableDate(new java.util.Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24)));
         fechaRecogida.setNextFocusableComponent(fechaRecogida);
 
         fechaEntrega.setDateFormatString("dd/MM/yyyy");
-        fechaEntrega.setMinSelectableDate(new java.util.Date(System.currentTimeMillis()));
+        fechaEntrega.setMinSelectableDate(new java.util.Date(System.currentTimeMillis() + (2000 * 60 * 60 * 24)));
 
         jLabel1.setText("Fecha recogida:");
 
@@ -156,40 +155,38 @@ public class HacerReserva1 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaRecogida, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel5)
+                                .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel1)
-                                    .addComponent(jLabel3)
-                                    .addComponent(fechaRecogida, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(infoEntrega, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(infoRecogida, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(0, 59, Short.MAX_VALUE))))
+                                    .addGap(65, 65, 65)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(fechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel2)))
+                                .addComponent(jLabel3)
+                                .addComponent(jScrollPane1))
+                            .addComponent(jLabel4)
+                            .addComponent(infoEntrega)
+                            .addComponent(infoRecogida))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
                 .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
@@ -197,22 +194,22 @@ public class HacerReserva1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fechaRecogida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(infoRecogida)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(infoEntrega)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -244,22 +241,29 @@ public class HacerReserva1 extends javax.swing.JFrame {
     }//GEN-LAST:event_infoEntregaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ArrayList<Oficina> oficinas = granCarnaryRent.getOficinas();
-        Oficina oficinaEntrega = null;
-        Oficina oficinaRecogida = null;
-        for(int i=0; i<oficinas.size();i++){
-            if (jList1.getSelectedValue().equals(oficinas.get(i).getDireccion())){
-                oficinaRecogida = oficinas.get(i);
+        if (fechaEntrega.getDate().before(fechaRecogida.getDate())){
+            JOptionPane.showMessageDialog(null, 
+                "Fecha de entrega del vehículo no válida", 
+                "Seleccione nueva fecha de entrega",
+                JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            ArrayList<Oficina> oficinas = granCarnaryRent.getOficinas();
+            Oficina oficinaEntrega = null;
+            Oficina oficinaRecogida = null;
+            for(int i=0; i<oficinas.size();i++){
+                if (jList1.getSelectedValue().equals(oficinas.get(i).getDireccion())){
+                    oficinaRecogida = oficinas.get(i);
+                }
+                if (jList2.getSelectedValue().equals(oficinas.get(i).getDireccion())){
+                    oficinaEntrega = oficinas.get(i);
+                }
             }
-            if (jList2.getSelectedValue().equals(oficinas.get(i).getDireccion())){
-                oficinaEntrega = oficinas.get(i);
-            }
-        }
-        Reserva reserva = new Reserva(oficinaRecogida, oficinaEntrega, fechaRecogida.getDate(), fechaEntrega.getDate());
-        HacerReserva2 abrir = new HacerReserva2(this.granCarnaryRent, this.user, reserva);
-        abrir.setVisible(true);
+            Reserva reserva = new Reserva(oficinaRecogida, oficinaEntrega, fechaRecogida.getDate(), fechaEntrega.getDate());
+            HacerReserva2 abrir = new HacerReserva2(this.granCarnaryRent, this.user, reserva);
+            abrir.setVisible(true);
 
-        this.setVisible(false);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

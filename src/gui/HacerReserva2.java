@@ -5,6 +5,8 @@
  */
 package gui;
 
+import java.time.ZoneId;
+import static java.time.temporal.ChronoUnit.DAYS;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.event.ListSelectionEvent;
@@ -23,6 +25,8 @@ public class HacerReserva2 extends javax.swing.JFrame {
     private GranCarnaryRent granCarnaryRent;
     private Usuario user;
     private Reserva reserva;
+    private ArrayList<Vehiculo> vehiculos;
+    private int numDias;
     /**
      * Creates new form HacerReserva2
      */
@@ -35,10 +39,12 @@ public class HacerReserva2 extends javax.swing.JFrame {
         this.granCarnaryRent = granCarnaryRent;
         this.user = user;
         this.reserva = reserva;
+        this.vehiculos = reserva.getOficinaRecogida().getVehiculosDisponibles();
+        this.numDias = (int) DAYS.between(reserva.getFechaRecogida().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), 
+                reserva.getFechaEntrega().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         this.setLocationRelativeTo(null);
         
         DefaultComboBoxModel list = new DefaultComboBoxModel();
-        ArrayList<Vehiculo> vehiculos = reserva.getOficinaRecogida().getVehiculosDisponibles();
         for(int i=0; i<vehiculos.size();i++){
             list.addElement(vehiculos.get(i).getModelo());
         }
@@ -50,8 +56,8 @@ public class HacerReserva2 extends javax.swing.JFrame {
         tipoMotorLabel.setText(vehiculos.get(0).getTipoMotor().toString());
         numAsientosLabel.setText(Integer.toString(vehiculos.get(0).getNumAsientos()));
         numPuertasLabel.setText(Integer.toString(vehiculos.get(0).getNumPuertas()));
-        String result = Double.toString(vehiculos.get(0).getPrecio());
-        result += " euros/día";
+        String result = String.format("%.2f", vehiculos.get(0).getPrecio() * numDias);
+        result += " euros";
         precioLabel.setText(result);
         
         jList1.addListSelectionListener(new ListSelectionListener(){
@@ -63,8 +69,8 @@ public class HacerReserva2 extends javax.swing.JFrame {
                 tipoMotorLabel.setText(vehiculos.get(i).getTipoMotor().toString());
                 numAsientosLabel.setText(Integer.toString(vehiculos.get(i).getNumAsientos()));
                 numPuertasLabel.setText(Integer.toString(vehiculos.get(i).getNumPuertas()));
-                String result = Double.toString(vehiculos.get(i).getPrecio());
-                result += " euros/día";
+                String result = String.format("%.2f", vehiculos.get(i).getPrecio() * numDias);;
+                result += " euros";
                 precioLabel.setText(result);
             }
         });
@@ -110,7 +116,7 @@ public class HacerReserva2 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        backButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        backButton.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         backButton.setText("Volver");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +124,7 @@ public class HacerReserva2 extends javax.swing.JFrame {
             }
         });
 
-        continueButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        continueButton.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
         continueButton.setText("Continuar");
         continueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,11 +165,8 @@ public class HacerReserva2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -172,7 +175,7 @@ public class HacerReserva2 extends javax.swing.JFrame {
                                 .addComponent(continueButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(30, 30, 30)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel6)
@@ -180,7 +183,7 @@ public class HacerReserva2 extends javax.swing.JFrame {
                                         .addComponent(tipoMotorLabel))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                                         .addComponent(tipoCambioLabel))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
@@ -197,6 +200,9 @@ public class HacerReserva2 extends javax.swing.JFrame {
                                         .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(numAsientosLabel)))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -229,11 +235,11 @@ public class HacerReserva2 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(precioLabel))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backButton)
-                    .addComponent(continueButton))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(continueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -247,8 +253,8 @@ public class HacerReserva2 extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
-        this.reserva.setVehiculoReservado(vehiculoReservado);
-        HacerReserva3 abrir = new HacerReserva3(this.granCarnaryRent, this.user, this.reserva);
+        this.reserva.setVehiculoReservado(this.vehiculos.get(jList1.getSelectedIndex()));
+        HacerReserva3 abrir = new HacerReserva3(this.granCarnaryRent, this.user, this.reserva, this.numDias);
         abrir.setVisible(true);
         
         this.setVisible(false);

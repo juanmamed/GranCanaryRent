@@ -5,9 +5,15 @@
  */
 package gui;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import model.GranCarnaryRent;
+import model.Oficina;
 import model.Reserva;
 import model.Usuario;
+import model.Vehiculo;
 
 /**
  *
@@ -29,6 +35,39 @@ public class HacerReserva2 extends javax.swing.JFrame {
         this.granCarnaryRent = granCarnaryRent;
         this.user = user;
         this.reserva = reserva;
+        this.setLocationRelativeTo(null);
+        
+        DefaultComboBoxModel list = new DefaultComboBoxModel();
+        ArrayList<Vehiculo> vehiculos = reserva.getOficinaRecogida().getVehiculosDisponibles();
+        for(int i=0; i<vehiculos.size();i++){
+            list.addElement(vehiculos.get(i).getModelo());
+        }
+        jList1.setModel(list);
+        jList1.setSelectedIndex(0);
+        
+        tipoVehiculoLabel.setText(vehiculos.get(0).getTipoVehiculo().toString());
+        tipoCambioLabel.setText(vehiculos.get(0).getTipoCambio().toString());
+        tipoMotorLabel.setText(vehiculos.get(0).getTipoMotor().toString());
+        numAsientosLabel.setText(Integer.toString(vehiculos.get(0).getNumAsientos()));
+        numPuertasLabel.setText(Integer.toString(vehiculos.get(0).getNumPuertas()));
+        String result = Double.toString(vehiculos.get(0).getPrecio());
+        result += " euros/día";
+        precioLabel.setText(result);
+        
+        jList1.addListSelectionListener(new ListSelectionListener(){
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                int i = jList1.getSelectedIndex();
+                tipoVehiculoLabel.setText(vehiculos.get(i).getTipoVehiculo().toString());
+                tipoCambioLabel.setText(vehiculos.get(i).getTipoCambio().toString());
+                tipoMotorLabel.setText(vehiculos.get(i).getTipoMotor().toString());
+                numAsientosLabel.setText(Integer.toString(vehiculos.get(i).getNumAsientos()));
+                numPuertasLabel.setText(Integer.toString(vehiculos.get(i).getNumPuertas()));
+                String result = Double.toString(vehiculos.get(i).getPrecio());
+                result += " euros/día";
+                precioLabel.setText(result);
+            }
+        });
     }
 
     
@@ -45,9 +84,19 @@ public class HacerReserva2 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        continueButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        precioLabel = new javax.swing.JLabel();
+        tipoVehiculoLabel = new javax.swing.JLabel();
+        numAsientosLabel = new javax.swing.JLabel();
+        numPuertasLabel = new javax.swing.JLabel();
+        tipoCambioLabel = new javax.swing.JLabel();
+        tipoMotorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,80 +110,148 @@ public class HacerReserva2 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        jButton1.setText("Ver coche");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        backButton.setText("Volver");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("Volver");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        continueButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        continueButton.setText("Continuar");
+        continueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                continueButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setText("Continuar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Tipo:");
+
+        jLabel2.setText("Num. asientos");
+
+        jLabel3.setText("Num. puertas:");
+
+        jLabel4.setText("Tipo cambio:");
+
+        jLabel6.setText("Tipo motor:");
+
+        precioLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        precioLabel.setText("90.32 euros/día");
+
+        tipoVehiculoLabel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        tipoVehiculoLabel.setText("Monovolumen");
+
+        numAsientosLabel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        numAsientosLabel.setText("5");
+
+        numPuertasLabel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        numPuertasLabel.setText("5");
+
+        tipoCambioLabel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        tipoCambioLabel.setText("Automático");
+
+        tipoMotorLabel.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        tipoMotorLabel.setText("Eléctrico");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel5))
+                        .addComponent(jLabel5)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton3))))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(backButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(continueButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tipoMotorLabel))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                                        .addComponent(tipoCambioLabel))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(numPuertasLabel))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tipoVehiculoLabel))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(precioLabel))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(numAsientosLabel)))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(tipoVehiculoLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(numAsientosLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(numPuertasLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(tipoCambioLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(tipoMotorLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(precioLabel))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
-                .addContainerGap())
+                    .addComponent(backButton)
+                    .addComponent(continueButton))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        HacerReserva1 abrir = new HacerReserva1(this.granCarnaryRent, this.user);
+        abrir.setVisible(true);
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_backButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
+        HacerReserva3 abrir = new HacerReserva3(this.granCarnaryRent, this.user, this.reserva);
+        abrir.setVisible(true);
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_continueButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,11 +289,21 @@ public class HacerReserva2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton backButton;
+    private javax.swing.JButton continueButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel numAsientosLabel;
+    private javax.swing.JLabel numPuertasLabel;
+    private javax.swing.JLabel precioLabel;
+    private javax.swing.JLabel tipoCambioLabel;
+    private javax.swing.JLabel tipoMotorLabel;
+    private javax.swing.JLabel tipoVehiculoLabel;
     // End of variables declaration//GEN-END:variables
 }

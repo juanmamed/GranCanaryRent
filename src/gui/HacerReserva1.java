@@ -5,6 +5,8 @@
  */
 package gui;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
@@ -48,6 +50,14 @@ public class HacerReserva1 extends javax.swing.JFrame {
         jList2.setModel(list);
         jList1.setSelectedIndex(0);
         jList2.setSelectedIndex(0);
+        
+        fechaRecogida.getDateEditor().addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent e) {
+                fechaEntrega.setMinSelectableDate(fechaRecogida.getDate());
+                fechaEntrega.setDate(new java.util.Date(fechaRecogida.getDate().getTime() + (1000 * 60 * 60 * 24)));
+            }
+        });
     }
 
     /**

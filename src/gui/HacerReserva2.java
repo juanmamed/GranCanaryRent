@@ -247,6 +247,7 @@ public class HacerReserva2 extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
+        this.reserva.setVehiculoReservado(vehiculoReservado);
         HacerReserva3 abrir = new HacerReserva3(this.granCarnaryRent, this.user, this.reserva);
         abrir.setVisible(true);
         

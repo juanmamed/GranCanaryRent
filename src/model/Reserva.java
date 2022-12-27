@@ -1,4 +1,5 @@
 package model;
+import java.util.ArrayList;
 import java.util.Date;
 /**
  *
@@ -9,6 +10,9 @@ public class Reserva {
     private Oficina oficinaEntrega;
     private Date fechaRecogida;
     private Date fechaEntrega;
+    private Vehiculo vehiculoReservado;
+    private Seguro seguroSeleccionado;
+    private ArrayList<Servicio> serviciosSeleccionados;
     private float precio;
     private boolean pagado;
     private int id;
@@ -48,6 +52,32 @@ public class Reserva {
     public int getId() {
         return id;
     }
+
+    public Vehiculo getVehiculoReservado() {
+        return vehiculoReservado;
+    }
+
+    public void setVehiculoReservado(Vehiculo vehiculoReservado) {
+        this.vehiculoReservado = vehiculoReservado;
+    }
+
+    public Seguro getSeguroSeleccionado() {
+        return seguroSeleccionado;
+    }
+
+    public void setSeguroSeleccionado(Seguro seguroSeleccionado) {
+        this.seguroSeleccionado = seguroSeleccionado;
+    }
+
+    public ArrayList<Servicio> getServiciosSeleccionados() {
+        return serviciosSeleccionados;
+    }
+
+    public void setServiciosSeleccionados(ArrayList<Servicio> serviciosSeleccionados) {
+        this.serviciosSeleccionados = serviciosSeleccionados;
+    }
+    
+    
 
     public void setOficinaRecogida(Oficina oficinaRecogida) {
         this.oficinaRecogida = oficinaRecogida;

@@ -137,4 +137,14 @@ public class Reserva {
         }
         return result.substring(result.length()-1);
     }
+    
+    public String toStringEstado(){
+        String result = "";
+        if (this.isPagado()){
+            result = "Pagado";
+            return result;
+        }
+        result = "Sin Pagar";
+        return result;
+    }
 }

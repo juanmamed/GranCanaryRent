@@ -52,6 +52,7 @@ public class VerReservas extends javax.swing.JFrame {
                     TipoDeSeguro.setText(vacio);
                     Servicios.setText(vacio);
                     Precio.setText(vacio);
+                    Estado.setText(vacio);
                 }
                 if ((ReservasSinPagar.isSelected()) && (reservas_sin_pagar.length == 0)){
                     OficinaDeRecogida.setText(vacio);
@@ -62,6 +63,7 @@ public class VerReservas extends javax.swing.JFrame {
                     TipoDeSeguro.setText(vacio);
                     Servicios.setText(vacio);
                     Precio.setText(vacio);
+                    Estado.setText(vacio);
                 }
                 if ((TodasLasReservas.isSelected()) && (reservas_totales.length > 0)){
                     if(i == -1){
@@ -78,6 +80,7 @@ public class VerReservas extends javax.swing.JFrame {
                     Servicios.setText(reserva.toStringServicios());
                     String s=String.valueOf(reserva.getPrecio());  
                     Precio.setText(s);
+                    Estado.setText(reserva.toStringEstado());
                 }
                 if ((ReservasSinPagar.isSelected()) && (reservas_sin_pagar.length > 0)){
                     if(i == -1){
@@ -94,6 +97,7 @@ public class VerReservas extends javax.swing.JFrame {
                     Servicios.setText(reserva.toStringServicios());
                     String s=String.valueOf(reserva.getPrecio());  
                     Precio.setText(s);
+                    Estado.setText(reserva.toStringEstado());
                 }
 
             }
@@ -105,6 +109,7 @@ public class VerReservas extends javax.swing.JFrame {
         String[] reservas_totales = this.user.getReservasArr();
         DefaultComboBoxModel list = new DefaultComboBoxModel();
         for(int i=0; i<reservas_totales.length;i++){
+            Reserva reserva = this.granCarnaryRent.getReserva(user.getNombre(), reservas_totales[i]);
             list.addElement(reservas_totales[i]);
         }
         ListaDeReservas.setModel(list);
@@ -120,6 +125,7 @@ public class VerReservas extends javax.swing.JFrame {
             Servicios.setText(reserva.toStringServicios());
             String s=String.valueOf(reserva.getPrecio());  
             Precio.setText(s);
+            Estado.setText(reserva.toStringEstado());
         }
         
         
@@ -160,6 +166,8 @@ public class VerReservas extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         Servicios = new javax.swing.JLabel();
         Precio = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        Estado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -239,6 +247,11 @@ public class VerReservas extends javax.swing.JFrame {
         Precio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Precio.setText("50.00 €");
 
+        jLabel10.setText("Estado:");
+
+        Estado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Estado.setText("Sin Pagar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -296,7 +309,11 @@ public class VerReservas extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Precio)))
+                                .addComponent(Precio))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Estado)))
                         .addGap(0, 29, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -314,14 +331,7 @@ public class VerReservas extends javax.swing.JFrame {
                     .addComponent(TodasLasReservas)
                     .addComponent(ReservasSinPagar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Pagar)
-                            .addComponent(Volver))
-                        .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -354,7 +364,16 @@ public class VerReservas extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(Precio))
-                        .addGap(0, 46, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(Estado)))
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Pagar)
+                    .addComponent(Volver))
+                .addContainerGap())
         );
 
         pack();
@@ -380,6 +399,7 @@ public class VerReservas extends javax.swing.JFrame {
             Servicios.setText(reserva.toStringServicios());
             String s=String.valueOf(reserva.getPrecio());  
             Precio.setText(s);
+            Estado.setText(reserva.toStringEstado());
         }
     }//GEN-LAST:event_TodasLasReservasActionPerformed
 
@@ -404,6 +424,7 @@ public class VerReservas extends javax.swing.JFrame {
             Servicios.setText(reserva.toStringServicios());
             String s=String.valueOf(reserva.getPrecio());  
             Precio.setText(s);
+            Estado.setText(reserva.toStringEstado());
         }
     }//GEN-LAST:event_ReservasSinPagarActionPerformed
 
@@ -452,6 +473,7 @@ public class VerReservas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Estado;
     private javax.swing.JLabel FechaDeEntrega;
     private javax.swing.JLabel FechaDeRecogida;
     private javax.swing.JList<String> ListaDeReservas;
@@ -467,6 +489,7 @@ public class VerReservas extends javax.swing.JFrame {
     private javax.swing.JButton Volver;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

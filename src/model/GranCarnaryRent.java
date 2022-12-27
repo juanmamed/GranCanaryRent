@@ -8,6 +8,7 @@ package model;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -97,12 +98,14 @@ public class GranCarnaryRent {
                     Oficina oficina_entrega = this.getOficina((String) json_reservas.get("oficinaEntrega"));
                     Date fecha_recogida = this.getDate((String) json_reservas.get("fechaRecogida"));
                     Date fecha_entrega = this.getDate((String) json_reservas.get("fechaEntrega"));
+                    System.out.println((String) json_reservas.get("vehiculo"));
+                    System.out.println("----------------------------------");
                     Vehiculo vehiculo = this.getVehiculo((String) json_reservas.get("oficinaRecogida"), (String) json_reservas.get("vehiculo"));
+                    
                     Seguro seguro = this.getSeguro((String) json_reservas.get("Seguro"));
                     numReservas++;
                     Reserva reserva = new Reserva(oficina_recogida, oficina_entrega, fecha_recogida, fecha_entrega, vehiculo, seguro, (double) json_reservas.get("precio"),(boolean) json_reservas.get("pagado"), numReservas);
                     usuario.addReserva(reserva);
-                    System.out.println(reserva.getOficinaRecogida().getDireccion());
                 }
                 usuarios.add(usuario);
             }
@@ -235,7 +238,9 @@ public class GranCarnaryRent {
     public Vehiculo getVehiculo(String dir_oficina, String vehiculo){
         Oficina oficina = getOficina(dir_oficina);
         for(int i=0; i<oficina.getVehiculosDisponibles().size();i++){
+            System.out.println(oficina.getVehiculosDisponibles().get(i).getModelo());
             if(oficina.getVehiculosDisponibles().get(i).getModelo().equals(vehiculo)){
+                System.out.println("niki");
                 return oficina.getVehiculosDisponibles().get(i);
             }
         }
@@ -249,5 +254,22 @@ public class GranCarnaryRent {
             }
         }
         return null;
+    }
+    
+    public Reserva getReserva(String usuario, String reserva){
+        Usuario user = getUsuario(usuario);
+        for(int i=0; i<user.getReservasRealizadas().size(); i++){
+            if(user.getReservasRealizadas().get(i).toString().equals(reserva)){
+                Reserva r = user.getReservasRealizadas().get(i);
+                return r;
+            }
+        }
+        return null;
+    }
+    
+    public String DateToString(Date date){
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
+        String strDate = dateFormat.format(date);  
+        return strDate;
     }
 }

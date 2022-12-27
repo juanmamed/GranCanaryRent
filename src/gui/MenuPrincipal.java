@@ -137,6 +137,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void verReservaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReservaButtonActionPerformed
         // TODO add your handling code here:
+        VerReservas abrir = new VerReservas(granCarnaryRent, user);
+        abrir.setVisible(true);
+
+        this.setVisible(false);
     }//GEN-LAST:event_verReservaButtonActionPerformed
 
     private void verTarjetasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verTarjetasButtonActionPerformed

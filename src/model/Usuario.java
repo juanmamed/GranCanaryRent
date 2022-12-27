@@ -66,6 +66,28 @@ public class Usuario {
         return reservasRealizadas;
     }
     
+    public String[] getReservasArr(){
+        String[] arr = new String[reservasRealizadas.size()];
+        for (int i=0; i<reservasRealizadas.size(); i++){
+            arr[i] = reservasRealizadas.get(i).toString();
+        }
+        return arr;
+    }
+    
+    public String[] getReservasSinPagarArr(){
+        int contador = 0;
+        for (int i=0; i<reservasRealizadas.size(); i++){
+            if (reservasRealizadas.get(i).isPagado() == false){
+                contador++;
+            }
+        }
+        String[] arr = new String[contador];
+        for (int i=0; i<arr.length; i++){
+            arr[i] = reservasRealizadas.get(i).toString();
+        }
+        return arr;
+    }
+    
     public boolean addCreditCard(String nombrePropietario, int cvc, String numero, String fechaValidez){
         if (this.tarjetas.size() < 3){
             TarjetaCredito tarjeta = new TarjetaCredito(nombrePropietario, cvc, numero, fechaValidez);

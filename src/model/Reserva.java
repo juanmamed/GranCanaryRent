@@ -12,7 +12,7 @@ public class Reserva {
     private Date fechaEntrega;
     private Vehiculo vehiculoReservado;
     private Seguro seguroSeleccionado;
-    private ArrayList<Servicio> serviciosSeleccionados;
+    private ArrayList<Servicio> serviciosSeleccionados = new ArrayList<Servicio>();
     private double precio;
     private boolean pagado;
     private int id;
@@ -119,4 +119,22 @@ public class Reserva {
         this.id = id;
     }
     
+    @Override
+    public String toString(){
+        String result = "";
+        result += "Reserva con ID: " + this.id;
+        return result;
+    }
+    
+    public String toStringServicios(){
+        String result = "";
+        if (this.serviciosSeleccionados.size() == 0){
+            result = "Sin servicios";
+            return result;
+        }
+        for(int i=0; i<this.serviciosSeleccionados.size(); i++){
+            result += this.serviciosSeleccionados.get(i).getNombreServicio() + ",";
+        }
+        return result.substring(result.length()-1);
+    }
 }

@@ -36,9 +36,9 @@ public class GranCarnaryRentApp {
         String filePath_seguros = new File("src/data/seguros.json").getAbsolutePath();
 
         model.loadOficinas(filePath_oficinas);
-        model.loadUsuarios(filePath_usuarios);
         model.loadServicios(filePath_servicios);
         model.loadSeguros(filePath_seguros);
+        model.loadUsuarios(filePath_usuarios);
         
         ArrayList<Oficina> oficinas = model.getOficinas();
         ArrayList<Usuario> usuarios = model.getUsuarios();

@@ -69,8 +69,7 @@ public class HacerReserva2 extends javax.swing.JFrame {
                 tipoMotorLabel.setText(vehiculos.get(i).getTipoMotor().toString());
                 numAsientosLabel.setText(Integer.toString(vehiculos.get(i).getNumAsientos()));
                 numPuertasLabel.setText(Integer.toString(vehiculos.get(i).getNumPuertas()));
-                String result = String.format("%.2f", vehiculos.get(i).getPrecio() * numDias);;
-                result += " euros";
+                String result = String.format("%.2f €", vehiculos.get(i).getPrecio() * numDias);;
                 precioLabel.setText(result);
             }
         });
@@ -254,7 +253,7 @@ public class HacerReserva2 extends javax.swing.JFrame {
 
     private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueButtonActionPerformed
         this.reserva.setVehiculoReservado(this.vehiculos.get(jList1.getSelectedIndex()));
-        HacerReserva3 abrir = new HacerReserva3(this.granCarnaryRent, this.user, this.reserva, this.numDias);
+        HacerReserva3 abrir = new HacerReserva3(this.granCarnaryRent, this.user, this.reserva, this.numDias, vehiculos.get(jList1.getSelectedIndex()).getPrecio() * numDias);
         abrir.setVisible(true);
         
         this.setVisible(false);

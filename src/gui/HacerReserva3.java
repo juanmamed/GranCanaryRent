@@ -5,6 +5,8 @@
  */
 package gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -28,6 +30,8 @@ public class HacerReserva3 extends javax.swing.JFrame {
     private ArrayList<Cobertura> coberturasEstandar;
     private ArrayList<Cobertura> coberturasPlus;
     private ArrayList<Cobertura> coberturasPremium;
+    private Seguro seguroSeleccionado;
+    private double currentPrecio;
 
     /**
      * Creates new form HacerReserva3
@@ -36,7 +40,7 @@ public class HacerReserva3 extends javax.swing.JFrame {
         initComponents();
     }
 
-    HacerReserva3(GranCarnaryRent granCarnaryRent, Usuario user, Reserva reserva, int numDias) {
+    HacerReserva3(GranCarnaryRent granCarnaryRent, Usuario user, Reserva reserva, int numDias, double currentPrecio) {
         this.granCarnaryRent = granCarnaryRent;
         this.user = user;
         this.reserva = reserva;
@@ -45,12 +49,21 @@ public class HacerReserva3 extends javax.swing.JFrame {
         this.coberturasEstandar = seguros.get(0).getCoberturas();
         this.coberturasPlus = seguros.get(1).getCoberturas();
         this.coberturasPremium = seguros.get(2).getCoberturas();
+        this.seguroSeleccionado = seguros.get(0);
+        this.currentPrecio = currentPrecio;
         initComponents();
         this.setLocationRelativeTo(null);
         
         estandarButton.setText(seguros.get(0).getNombreSeguro());
         plusButton.setText(seguros.get(1).getNombreSeguro());
         premiumButton.setText(seguros.get(2).getNombreSeguro());
+        
+        String result = String.format("+ %.2f €", seguros.get(0).getPrecio() * numDias);
+        estandarPrecio.setText(result);
+        result = String.format("+ %.2f €", seguros.get(1).getPrecio() * numDias);
+        plusPrecio.setText(result);
+        result = String.format("+ %.2f €", seguros.get(2).getPrecio() * numDias);
+        premiumPrecio.setText(result);
         
         DefaultComboBoxModel estandarListModel = new DefaultComboBoxModel();
         for(int i=0; i<coberturasEstandar.size();i++){
@@ -64,9 +77,44 @@ public class HacerReserva3 extends javax.swing.JFrame {
         for(int i=0; i<coberturasEstandar.size();i++){
             premiumListModel.addElement(coberturasEstandar.get(i).getNombreCobertura());
         }
+        
         estandarList.setModel(estandarListModel);
         plusList.setModel(plusListModel);
         premiumList.setModel(premiumListModel);
+        
+        double subtotalEstandar = currentPrecio + (seguros.get(0).getPrecio() * numDias);
+        double subtotalPlus = currentPrecio + (seguros.get(1).getPrecio() * numDias);
+        double subtotalPremium = currentPrecio + (seguros.get(2).getPrecio() * numDias);
+        
+        result = String.format("Subtotal: %.2f €", subtotalEstandar);
+        subtotalLabel.setText(result);
+        
+        estandarButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String result = String.format("Subtotal %.2f €", subtotalEstandar);
+                subtotalLabel.setText(result);
+                seguroSeleccionado = seguros.get(0);
+            }
+        });
+        
+        plusButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String result = String.format("Subtotal %.2f €", subtotalPlus);
+                subtotalLabel.setText(result);
+                seguroSeleccionado = seguros.get(1);
+            }
+        });
+        
+        premiumButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String result = String.format("Subtotal %.2f €", subtotalPremium);
+                subtotalLabel.setText(result);
+                seguroSeleccionado = seguros.get(2);
+            }
+        });
     }
 
     /**
@@ -212,10 +260,6 @@ public class HacerReserva3 extends javax.swing.JFrame {
                     .addComponent(jScrollPane3)
                     .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(volverButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(continuarButton))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(plusButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(plusPrecio))
@@ -229,14 +273,18 @@ public class HacerReserva3 extends javax.swing.JFrame {
                             .addComponent(infoEstandar)
                             .addComponent(infoPlus)
                             .addComponent(infoPremium))
-                        .addGap(0, 12, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(subtotalLabel))
+                        .addGap(0, 30, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(estandarButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(estandarPrecio)))
+                        .addComponent(estandarPrecio))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(volverButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(continuarButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(subtotalLabel)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -267,17 +315,13 @@ public class HacerReserva3 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(infoPremium)
-                        .addGap(11, 11, 11)
-                        .addComponent(subtotalLabel)
-                        .addGap(0, 15, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(continuarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(volverButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addComponent(infoPremium)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(subtotalLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(volverButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(continuarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -338,8 +382,12 @@ public class HacerReserva3 extends javax.swing.JFrame {
     }//GEN-LAST:event_volverButtonActionPerformed
 
     private void continuarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarButtonActionPerformed
-
+        this.reserva.setSeguroSeleccionado(seguroSeleccionado);
+        currentPrecio += (seguroSeleccionado.getPrecio() * this.numDias);
+        HacerReserva4 abrir = new HacerReserva4(this.granCarnaryRent, this.user, this.reserva, this.numDias, this.currentPrecio);
+        abrir.setVisible(true);
         
+        this.setVisible(false);
     }//GEN-LAST:event_continuarButtonActionPerformed
 
     /**

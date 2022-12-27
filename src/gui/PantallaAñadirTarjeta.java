@@ -179,12 +179,19 @@ public class PantallaAñadirTarjeta extends javax.swing.JFrame {
             JOptionPane.INFORMATION_MESSAGE);
             this.FechaValidez.setText("");
         } else{
-            JOptionPane.showMessageDialog(null, 
-            "La tarjeta de crédito ha sido añadida exitósamente",
-            "Tarjeta añadida correctamente", 
-            JOptionPane.INFORMATION_MESSAGE);
+            
             int codigo = Integer.parseInt(cvc);
-            user.addCreditCard(nombre, codigo, numero, fecha_validez);
+            if(user.addCreditCard(nombre, codigo, numero, fecha_validez)){
+                JOptionPane.showMessageDialog(null, 
+                "La tarjeta de crédito ha sido añadida exitósamente",
+                "Tarjeta añadida correctamente", 
+                JOptionPane.INFORMATION_MESSAGE);
+            } else{
+                JOptionPane.showMessageDialog(null, 
+                "Usted ya tiene un total de 3 tarjetas de crédito. Si quiere añadir una nueva debe eliminar una",
+                "No se ha podido añadir la tarjeta", 
+                JOptionPane.INFORMATION_MESSAGE);
+            }
             PantallaVerTarjetas abrir = new PantallaVerTarjetas(this.granCarnaryRent,this.user);
             abrir.setVisible(true);
             this.setVisible(false);

@@ -27,7 +27,7 @@ public class GranCarnaryRentApp {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException, FileNotFoundException, ParseException {
+    public static void main(String[] args) throws IOException, FileNotFoundException, ParseException, java.text.ParseException {
         // TODO code application logic here
         GranCarnaryRent model = new GranCarnaryRent();
         String filePath_oficinas = new File("src/data/oficinas.json").getAbsolutePath();

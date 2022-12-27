@@ -66,11 +66,13 @@ public class Usuario {
         return reservasRealizadas;
     }
     
-    public void addCreditCard(String nombrePropietario, int cvc, String numero, String fechaValidez){
+    public boolean addCreditCard(String nombrePropietario, int cvc, String numero, String fechaValidez){
         if (this.tarjetas.size() < 3){
             TarjetaCredito tarjeta = new TarjetaCredito(nombrePropietario, cvc, numero, fechaValidez);
             this.tarjetas.add(tarjeta);
+            return true;
         }
+        return false;
     }
     
     public void deleteCreditCard(TarjetaCredito tarjeta){

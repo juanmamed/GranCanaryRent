@@ -42,7 +42,7 @@ public class HacerReserva4 extends javax.swing.JFrame {
         this.user = user;
         this.reserva = reserva;
         this.numDias = numDias;
-        this.lastPrecio = currentPrecio;
+        this.lastPrecio = lastPrecio;
         this.currentPrecio = lastPrecio;
         this.servicios = this.granCarnaryRent.getServicios();
         initComponents();

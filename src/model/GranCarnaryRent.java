@@ -240,7 +240,6 @@ public class GranCarnaryRent {
         for(int i=0; i<oficina.getVehiculosDisponibles().size();i++){
             System.out.println(oficina.getVehiculosDisponibles().get(i).getModelo());
             if(oficina.getVehiculosDisponibles().get(i).getModelo().equals(vehiculo)){
-                System.out.println("niki");
                 return oficina.getVehiculosDisponibles().get(i);
             }
         }

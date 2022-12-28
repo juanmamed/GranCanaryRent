@@ -114,6 +114,14 @@ public class Usuario {
         this.reservasRealizadas.add(r);
     }
     
+    public void addCredit(float credit){
+        this.saldo += credit;
+    }
+    
+    public void substractCredit(float credit){
+        this.saldo -= credit;
+    }
+    
     @Override
     public String toString(){
         String result = "";

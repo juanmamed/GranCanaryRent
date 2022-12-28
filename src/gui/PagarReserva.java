@@ -152,8 +152,6 @@ public class PagarReserva extends javax.swing.JFrame {
         // TODO add your handling code here:
          try{
             for (TarjetaCredito tarjeta : this.user.getTarjetas()){
-                System.out.println(tarjeta.toString());
-                System.out.println(ListaDeTarjetas.getSelectedValue());
                 if(ListaDeTarjetas.getSelectedValue().equals(tarjeta.toString())){
                     JOptionPane.showMessageDialog(null,
                     "Su pago ha sido realizado de manera exitosa",

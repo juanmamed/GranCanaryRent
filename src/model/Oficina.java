@@ -48,7 +48,16 @@ public class Oficina {
         result += this.getDireccion() + " - " + this.getNumContacto();
         return result;
     }
-
+    
+    public boolean existVehiculo(Vehiculo v){
+        for(int i=0; i<vehiculosDisponibles.size(); i++){
+            if(v.getModelo().equals(vehiculosDisponibles.get(i).getModelo())){
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public void loadVehiculos(JSONArray array) {
         Iterator<JSONObject> iterator = array.iterator();
         JSONObject json_vehiculo;
@@ -62,8 +71,10 @@ public class Oficina {
                                              Math.toIntExact((long) json_vehiculo.get("asientos")), 
                                              Math.toIntExact((long) json_vehiculo.get("puertas")),
                                             (double) json_vehiculo.get("precio"), (String) json_vehiculo.get("modelo"));
-            System.out.println(vehiculo);
-            vehiculosDisponibles.add(vehiculo);
+            
+            if(existVehiculo(vehiculo) == false){
+                vehiculosDisponibles.add(vehiculo);
+            }
         }
     }
 }

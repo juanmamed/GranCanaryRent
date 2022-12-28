@@ -140,8 +140,8 @@ public class AñadirTarjetaReserva extends javax.swing.JFrame {
 
     private void CancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarButtonActionPerformed
         // TODO add your handling code here:
-        PantallaVerTarjetas pantalla_tarjetas = new PantallaVerTarjetas(this.granCarnaryRent, this.user);
-        pantalla_tarjetas.setVisible(true);
+        PagarReserva pantalla_reservas = new PagarReserva(this.granCarnaryRent, this.user, reserva);
+        pantalla_reservas.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_CancelarButtonActionPerformed
 

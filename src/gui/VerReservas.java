@@ -80,8 +80,8 @@ public class VerReservas extends javax.swing.JFrame {
                     Vehículo.setText(reserva.getVehiculoReservado().getModelo());
                     TipoDeSeguro.setText(reserva.getSeguroSeleccionado().getNombreSeguro());
                     Servicios.setText(reserva.toStringServicios());
-                    String s=String.valueOf(reserva.getPrecio());  
-                    Precio.setText(s);
+                    String result = String.format("%.2f €", reserva.getPrecio());
+                    Precio.setText(result);
                     Estado.setText(reserva.toStringEstado());
                 }
                 if ((ReservasSinPagar.isSelected()) && (reservas_sin_pagar.length > 0)){
@@ -97,8 +97,8 @@ public class VerReservas extends javax.swing.JFrame {
                     Vehículo.setText(reserva.getVehiculoReservado().getModelo());
                     TipoDeSeguro.setText(reserva.getSeguroSeleccionado().getNombreSeguro());
                     Servicios.setText(reserva.toStringServicios());
-                    String s=String.valueOf(reserva.getPrecio());  
-                    Precio.setText(s);
+                    String result = String.format("%.2f €", reserva.getPrecio());
+                    Precio.setText(result);
                     Estado.setText(reserva.toStringEstado());
                 }
 
@@ -125,8 +125,8 @@ public class VerReservas extends javax.swing.JFrame {
             Vehículo.setText(reserva.getVehiculoReservado().getModelo());
             TipoDeSeguro.setText(reserva.getSeguroSeleccionado().getNombreSeguro());
             Servicios.setText(reserva.toStringServicios());
-            String s=String.valueOf(reserva.getPrecio());  
-            Precio.setText(s);
+            String result = String.format("%.2f €", reserva.getPrecio());
+            Precio.setText(result);
             Estado.setText(reserva.toStringEstado());
         }
         
@@ -469,7 +469,7 @@ public class VerReservas extends javax.swing.JFrame {
         }catch(java.lang.NullPointerException e){
             JOptionPane.showMessageDialog(null,
                 "No ha seleccionado correctamente el elemento",
-                "Seleccione una tarjeta",
+                "Seleccione una reserva",
                 JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_PagarActionPerformed

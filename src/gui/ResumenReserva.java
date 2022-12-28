@@ -88,7 +88,7 @@ public class ResumenReserva extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         pagarDespuesButton = new javax.swing.JButton();
-        pagarDespuesButton1 = new javax.swing.JButton();
+        pagarAhoraButton = new javax.swing.JButton();
         subtotalLabel = new javax.swing.JLabel();
         fechaRecogidaLabel = new javax.swing.JLabel();
         fechaEntregaLabel = new javax.swing.JLabel();
@@ -99,6 +99,7 @@ public class ResumenReserva extends javax.swing.JFrame {
         serviciosLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel5.setFont(new java.awt.Font("Malgun Gothic", 1, 22)); // NOI18N
         jLabel5.setText("RESUMEN RESERVA");
@@ -125,11 +126,11 @@ public class ResumenReserva extends javax.swing.JFrame {
             }
         });
 
-        pagarDespuesButton1.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
-        pagarDespuesButton1.setText("Pagar ahora");
-        pagarDespuesButton1.addActionListener(new java.awt.event.ActionListener() {
+        pagarAhoraButton.setFont(new java.awt.Font("Lucida Console", 1, 14)); // NOI18N
+        pagarAhoraButton.setText("Pagar ahora");
+        pagarAhoraButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pagarDespuesButton1ActionPerformed(evt);
+                pagarAhoraButtonActionPerformed(evt);
             }
         });
 
@@ -168,7 +169,7 @@ public class ResumenReserva extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pagarDespuesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                        .addComponent(pagarDespuesButton1))
+                        .addComponent(pagarAhoraButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -243,7 +244,7 @@ public class ResumenReserva extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pagarDespuesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pagarDespuesButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pagarAhoraButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -258,9 +259,13 @@ public class ResumenReserva extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_pagarDespuesButtonActionPerformed
 
-    private void pagarDespuesButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagarDespuesButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pagarDespuesButton1ActionPerformed
+    private void pagarAhoraButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagarAhoraButtonActionPerformed
+        this.user.addReserva(reserva);
+        PagarReserva abrir = new PagarReserva(this.granCarnaryRent, this.user, this.reserva);
+        abrir.setVisible(true);
+
+        this.setVisible(false);
+    }//GEN-LAST:event_pagarAhoraButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,8 +315,8 @@ public class ResumenReserva extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel oficinaEntregaLabel;
     private javax.swing.JLabel oficinaRecogidaLabel;
+    private javax.swing.JButton pagarAhoraButton;
     private javax.swing.JButton pagarDespuesButton;
-    private javax.swing.JButton pagarDespuesButton1;
     private javax.swing.JLabel seguroLabel;
     private javax.swing.JLabel serviciosLabel;
     private javax.swing.JLabel subtotalLabel;

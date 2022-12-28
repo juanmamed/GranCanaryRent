@@ -98,8 +98,6 @@ public class GranCarnaryRent {
                     Oficina oficina_entrega = this.getOficina((String) json_reservas.get("oficinaEntrega"));
                     Date fecha_recogida = this.getDate((String) json_reservas.get("fechaRecogida"));
                     Date fecha_entrega = this.getDate((String) json_reservas.get("fechaEntrega"));
-                    System.out.println((String) json_reservas.get("vehiculo"));
-                    System.out.println("----------------------------------");
                     Vehiculo vehiculo = this.getVehiculo((String) json_reservas.get("oficinaRecogida"), (String) json_reservas.get("vehiculo"));
                     
                     Seguro seguro = this.getSeguro((String) json_reservas.get("Seguro"));
@@ -238,7 +236,6 @@ public class GranCarnaryRent {
     public Vehiculo getVehiculo(String dir_oficina, String vehiculo){
         Oficina oficina = getOficina(dir_oficina);
         for(int i=0; i<oficina.getVehiculosDisponibles().size();i++){
-            System.out.println(oficina.getVehiculosDisponibles().get(i).getModelo());
             if(oficina.getVehiculosDisponibles().get(i).getModelo().equals(vehiculo)){
                 return oficina.getVehiculosDisponibles().get(i);
             }
@@ -270,5 +267,10 @@ public class GranCarnaryRent {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
         String strDate = dateFormat.format(date);  
         return strDate;
+    }
+    
+    public int getIdReserva(){
+        numReservas++;
+        return numReservas;
     }
 }

@@ -418,7 +418,7 @@ public class HacerReserva4 extends javax.swing.JFrame {
         }
         this.reserva.setServiciosSeleccionados(serviciosExtra);
         this.reserva.setPrecio(currentPrecio);
-        this.reserva.setId(this.user.getReservasRealizadas().size() + 1);
+        this.reserva.setId(this.granCarnaryRent.getIdReserva());
         ResumenReserva abrir = new ResumenReserva(this.granCarnaryRent, this.user, this.reserva);
         abrir.setVisible(true);
 

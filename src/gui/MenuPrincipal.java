@@ -49,6 +49,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         hacerReservaButton = new javax.swing.JButton();
         verReservaButton = new javax.swing.JButton();
         verTarjetasButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,6 +84,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,7 +100,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(jLabel1)
-                        .addGap(0, 64, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(userLabel)
@@ -100,7 +108,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addComponent(userSaldoLabel)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(hacerReservaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(verReservaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -116,20 +126,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(userSaldoLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
-                .addComponent(hacerReservaButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(verReservaButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(verTarjetasButton)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(hacerReservaButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(verReservaButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(verTarjetasButton)
+                        .addContainerGap(28, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void hacerReservaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hacerReservaButtonActionPerformed
-        HacerReserva1 abrir = new HacerReserva1(granCarnaryRent, user);
+        HacerReserva1 abrir = new HacerReserva1(this.granCarnaryRent, this.user);
         abrir.setVisible(true);
 
         this.setVisible(false);
@@ -137,7 +153,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void verReservaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verReservaButtonActionPerformed
         // TODO add your handling code here:
-        VerReservas abrir = new VerReservas(granCarnaryRent, user);
+        VerReservas abrir = new VerReservas(this.granCarnaryRent, this.user);
         abrir.setVisible(true);
 
         this.setVisible(false);
@@ -150,6 +166,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         this.setVisible(false);
     }//GEN-LAST:event_verTarjetasButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        PantallaInicio abrir = new PantallaInicio(this.granCarnaryRent);
+        abrir.setVisible(true);
+
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,6 +211,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton hacerReservaButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel userLabel;
     private javax.swing.JLabel userSaldoLabel;

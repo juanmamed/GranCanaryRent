@@ -48,8 +48,8 @@ public class PantallaIniciarSesion extends javax.swing.JFrame {
         lContraseñaI = new javax.swing.JLabel();
         NombreInicio = new javax.swing.JTextField();
         ContraseñaInicio = new javax.swing.JTextField();
-        lAceptarI = new javax.swing.JButton();
         bVolverI = new javax.swing.JButton();
+        lAceptarI = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,17 +59,17 @@ public class PantallaIniciarSesion extends javax.swing.JFrame {
 
         lContraseñaI.setText("Contraseña:");
 
-        lAceptarI.setText("Aceptar");
-        lAceptarI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lAceptarIActionPerformed(evt);
-            }
-        });
-
         bVolverI.setText("Volver");
         bVolverI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bVolverIActionPerformed(evt);
+            }
+        });
+
+        lAceptarI.setText("Aceptar");
+        lAceptarI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lAceptarIActionPerformed(evt);
             }
         });
 
@@ -80,7 +80,9 @@ public class PantallaIniciarSesion extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lContraseñaI)
@@ -91,12 +93,9 @@ public class PantallaIniciarSesion extends javax.swing.JFrame {
                             .addComponent(ContraseñaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lAceptarI)
-                        .addGap(33, 33, 33)
                         .addComponent(bVolverI)
-                        .addGap(35, 35, 35)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lAceptarI))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -30,6 +30,7 @@ public class GranCarnaryRentApp {
     public static void main(String[] args) throws IOException, FileNotFoundException, ParseException, java.text.ParseException {
         // TODO code application logic here
         GranCarnaryRent model = new GranCarnaryRent();
+        
         String filePath_oficinas = new File("src/data/oficinas.json").getAbsolutePath();
         String filePath_usuarios = new File("src/data/usuarios.json").getAbsolutePath();
         String filePath_servicios = new File("src/data/servicios.json").getAbsolutePath();
@@ -40,37 +41,7 @@ public class GranCarnaryRentApp {
         model.loadSeguros(filePath_seguros);
         model.loadUsuarios(filePath_usuarios);
         
-        ArrayList<Oficina> oficinas = model.getOficinas();
-        ArrayList<Usuario> usuarios = model.getUsuarios();
-        ArrayList<Servicio> servicios = model.getServicios();
-        ArrayList<Seguro> seguros = model.getSeguros();
         PantallaInicio pi = new PantallaInicio(model);
-        pi.setVisible(true);
-        
-        for(int i=0; i<usuarios.size(); i++){
-            System.out.println(usuarios.get(i).toString() + ":");
-            ArrayList<TarjetaCredito> tarjetas = usuarios.get(i).getTarjetas();
-            for(int x=0; x<tarjetas.size(); x++){
-                System.out.println(tarjetas.get(x).toString());
-            }
-        }
-        
-        for(int i=0; i<servicios.size(); i++){
-            System.out.println(servicios.get(i).getNombreServicio());
-        }
-        
-        for(int i=0; i<seguros.size(); i++){
-            System.out.println(seguros.get(i).getNombreSeguro());
-            ArrayList<Cobertura> coberturas = seguros.get(i).getCoberturas();
-            for(int x=0; x<coberturas.size(); x++){
-                System.out.println(coberturas.get(x).getNombreCobertura());
-                
-            }
-        }
-        
-        TipoCambio readyStatus = TipoCambio.valueOf("MANUAL");
-        System.out.println(readyStatus.getTipoCambio());
-        
+        pi.setVisible(true);         
     }
-    
 }

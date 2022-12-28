@@ -3,23 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/model/Cobertura.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/data/usuarios.json</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/model/GranCarnaryRent.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/model/Usuario.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/gui/HacerReserva2.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/model/Vehiculo.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/gui/PantallaInicio.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/gui/HacerReserva3.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/model/Reserva.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/model/Oficina.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/gui/PantallaCrearCuenta.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/gui/PantallaAñadirTarjeta.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/app/GranCarnaryRentApp.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/gui/PantallaVerTarjetas.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/gui/PantallaIniciarSesion.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/gui/HacerReserva1.java</file>
-            <file>file:/C:/4_UNI/IS1/GranCanaryRent/src/gui/MenuPrincipal.java</file>
+            <file>file:/C:/Users/Juanma/OneDrive/Documentos/NetBeansProjects/GranCanaryRent/src/gui/PantallaVerTarjetas.java</file>
+            <file>file:/C:/Users/Juanma/OneDrive/Documentos/NetBeansProjects/GranCanaryRent/src/gui/AñadirTarjetaReserva.java</file>
+            <file>file:/C:/Users/Juanma/OneDrive/Documentos/NetBeansProjects/GranCanaryRent/src/model/Oficina.java</file>
+            <file>file:/C:/Users/Juanma/OneDrive/Documentos/NetBeansProjects/GranCanaryRent/src/gui/AñadirTarjeta.java</file>
+            <file>file:/C:/Users/Juanma/OneDrive/Documentos/NetBeansProjects/GranCanaryRent/src/app/GranCarnaryRentApp.java</file>
+            <file>file:/C:/Users/Juanma/OneDrive/Documentos/NetBeansProjects/GranCanaryRent/src/model/GranCarnaryRent.java</file>
+            <file>file:/C:/Users/Juanma/OneDrive/Documentos/NetBeansProjects/GranCanaryRent/src/model/Usuario.java</file>
+            <file>file:/C:/Users/Juanma/OneDrive/Documentos/NetBeansProjects/GranCanaryRent/src/model/Servicio.java</file>
+            <file>file:/C:/Users/Juanma/OneDrive/Documentos/NetBeansProjects/GranCanaryRent/src/gui/VerReservas.java</file>
+            <file>file:/C:/Users/Juanma/OneDrive/Documentos/NetBeansProjects/GranCanaryRent/src/gui/PagarReserva.java</file>
+            <file>file:/C:/Users/Juanma/OneDrive/Documentos/NetBeansProjects/GranCanaryRent/src/model/Reserva.java</file>
         </group>
     </open-files>
 </project-private>

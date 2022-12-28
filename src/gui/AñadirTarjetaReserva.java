@@ -8,27 +8,30 @@ package gui;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import model.GranCarnaryRent;
+import model.Reserva;
 import model.Usuario;
 
 /**
  *
  * @author Juanma
  */
-public class PantallaAñadirTarjeta extends javax.swing.JFrame {
+public class AñadirTarjetaReserva extends javax.swing.JFrame {
     private GranCarnaryRent granCarnaryRent;
     private Usuario user;
+    private Reserva reserva;
     /**
      * Creates new form PantallaAñadirTarjeta
      */
-    public PantallaAñadirTarjeta() {
+    public AñadirTarjetaReserva() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
     
-    public PantallaAñadirTarjeta(GranCarnaryRent granCarnaryRent, Usuario usuario) {
+    public AñadirTarjetaReserva(GranCarnaryRent granCarnaryRent, Usuario usuario, Reserva reserva) {
         initComponents();
         this.granCarnaryRent = granCarnaryRent;
         this.user = usuario;
+        this.reserva = reserva;
         this.setLocationRelativeTo(null);
     }
     /**
@@ -192,7 +195,7 @@ public class PantallaAñadirTarjeta extends javax.swing.JFrame {
                 "No se ha podido añadir la tarjeta", 
                 JOptionPane.INFORMATION_MESSAGE);
             }
-            PantallaVerTarjetas abrir = new PantallaVerTarjetas(this.granCarnaryRent,this.user);
+            PagarReserva abrir = new PagarReserva(this.granCarnaryRent,this.user, this.reserva);
             abrir.setVisible(true);
             this.setVisible(false);
         }
@@ -215,20 +218,21 @@ public class PantallaAñadirTarjeta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaAñadirTarjeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AñadirTarjetaReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaAñadirTarjeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AñadirTarjetaReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaAñadirTarjeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AñadirTarjetaReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaAñadirTarjeta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AñadirTarjetaReserva.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaAñadirTarjeta().setVisible(true);
+                new AñadirTarjetaReserva().setVisible(true);
             }
         });
     }

@@ -182,7 +182,7 @@ public class PantallaVerTarjetas extends javax.swing.JFrame {
 
     private void AñadirTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadirTarjetaActionPerformed
         // TODO add your handling code here:
-        PantallaAñadirTarjeta pantalla = new PantallaAñadirTarjeta(this.granCarnaryRent, this.user);
+        AñadirTarjeta pantalla = new AñadirTarjeta(this.granCarnaryRent, this.user);
         pantalla.setVisible(true);
         String [] text = new String[0];
         ListaDeTarjetas.setListData(text);

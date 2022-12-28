@@ -141,7 +141,7 @@ public class PagarReserva extends javax.swing.JFrame {
 
     private void AñadirTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadirTarjetaActionPerformed
         // TODO add your handling code here:
-        PantallaAñadirTarjeta pantalla = new PantallaAñadirTarjeta(this.granCarnaryRent, this.user);
+        AñadirTarjetaReserva pantalla = new AñadirTarjetaReserva(this.granCarnaryRent, this.user, this.reserva);
         pantalla.setVisible(true);
         String [] text = new String[0];
         ListaDeTarjetas.setListData(text);
@@ -152,19 +152,21 @@ public class PagarReserva extends javax.swing.JFrame {
         // TODO add your handling code here:
          try{
             for (TarjetaCredito tarjeta : this.user.getTarjetas()){
+                System.out.println(tarjeta.toString());
+                System.out.println(ListaDeTarjetas.getSelectedValue());
                 if(ListaDeTarjetas.getSelectedValue().equals(tarjeta.toString())){
                     JOptionPane.showMessageDialog(null,
                     "Su pago ha sido realizado de manera exitosa",
                     "Pago realizado",
                     JOptionPane.INFORMATION_MESSAGE);
                     reserva.setPagado(true);
+                    VerReservas abrir = new VerReservas(this.granCarnaryRent, this.user);
+                    abrir.setVisible(true);
+                    String [] text = new String[0];
+                    ListaDeTarjetas.setListData(text);
+                    this.setVisible(false);
+                    break;
                 }
-                VerReservas abrir = new VerReservas(this.granCarnaryRent, this.user);
-                abrir.setVisible(true);
-                String [] text = new String[0];
-                ListaDeTarjetas.setListData(text);
-                this.setVisible(false);
-                break;
             }
         }catch(java.lang.NullPointerException e){
             JOptionPane.showMessageDialog(null,

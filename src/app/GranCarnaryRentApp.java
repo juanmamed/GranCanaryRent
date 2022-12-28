@@ -8,15 +8,7 @@ import gui.PantallaInicio;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import model.Cobertura;
 import model.GranCarnaryRent;
-import model.Oficina;
-import model.Seguro;
-import model.Servicio;
-import model.TarjetaCredito;
-import model.TipoCambio;
-import model.Usuario;
 import org.json.simple.parser.ParseException;
 /**
  *

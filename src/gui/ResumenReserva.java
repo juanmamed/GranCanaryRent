@@ -36,8 +36,6 @@ public class ResumenReserva extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        System.out.println(reserva.getFechaRecogida().toString());
-        System.out.println(reserva.getFechaEntrega().toString());
         Date date = reserva.getFechaRecogida();  
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");  
         String strDate = dateFormat.format(date);  

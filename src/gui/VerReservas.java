@@ -41,7 +41,6 @@ public class VerReservas extends javax.swing.JFrame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 int i = ListaDeReservas.getSelectedIndex();
-                System.out.println(i);
                 String[] reservas_totales = usuario.getReservasArr();
                 String[] reservas_sin_pagar = user.getReservasSinPagarArr();
                 String vacio = "";
@@ -448,7 +447,6 @@ public class VerReservas extends javax.swing.JFrame {
         try{
             for (Reserva reserva : this.user.getReservasRealizadas()){
                 if(ListaDeReservas.getSelectedValue().equals(reserva.toString())){
-                    System.out.println(reserva.isPagado());
                     if (reserva.isPagado() == true){
                         JOptionPane.showMessageDialog(null,
                         "Esta reserva no se encuentra pendiente de pago",

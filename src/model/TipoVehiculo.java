@@ -10,7 +10,7 @@ package model;
  * @author Juanma
  */
 public enum TipoVehiculo {
-    PEQUEÑO("Pequeño"), MEDIANO("Mediano"), GRANDE("Grande"), MOTO("Moto"), MONOVOLUMEN("MonoVolumen"), FAMILIAR("Familiar");
+    PEQUENO("Pequeño"), MEDIANO("Mediano"), GRANDE("Grande"), MOTO("Moto"), MONOVOLUMEN("MonoVolumen"), FAMILIAR("Familiar");
     
     private String tipoVehiculo;
     

@@ -6,7 +6,7 @@
 			{
 				"cambio": "MANUAL",
 				"motor": "GASOLINA",
-				"vehiculo": "PEQUEÑO",
+				"vehiculo": "PEQUENO",
 				"asientos": 4,
 				"puertas": 3,
 				"precio": 56.59,
@@ -15,7 +15,7 @@
 			{
 				"cambio": "MANUAL",
 				"motor": "DIESEL",
-				"vehiculo": "PEQUEÑO",
+				"vehiculo": "PEQUENO",
 				"asientos": 5,
 				"puertas": 5,
 				"precio": 70.89,
@@ -75,7 +75,7 @@
 			{
 				"cambio": "MANUAL",
 				"motor": "GASOLINA",
-				"vehiculo": "PEQUEÑO",
+				"vehiculo": "PEQUENO",
 				"asientos": 4,
 				"puertas": 3,
 				"precio": 56.59,
@@ -84,7 +84,7 @@
 			{
 				"cambio": "AUTOMATICO",
 				"motor": "ELECTRICO",
-				"vehiculo": "PEQUEÑO",
+				"vehiculo": "PEQUENO",
 				"asientos": 4,
 				"puertas": 5,
 				"precio": 75.29,
@@ -153,7 +153,7 @@
 			{
 				"cambio": "MANUAL",
 				"motor": "GASOLINA",
-				"vehiculo": "PEQUEÑO",
+				"vehiculo": "PEQUENO",
 				"asientos": 5,
 				"puertas": 5,
 				"precio": 66.59,
@@ -162,7 +162,7 @@
 			{
 				"cambio": "AUTOMATICO",
 				"motor": "DIESEL",
-				"vehiculo": "PEQUEÑO",
+				"vehiculo": "PEQUENO",
 				"asientos": 5,
 				"puertas": 5,
 				"precio": 78.59,
@@ -231,7 +231,7 @@
 			{
 				"cambio": "MANUAL",
 				"motor": "GASOLINA",
-				"vehiculo": "PEQUEÑO",
+				"vehiculo": "PEQUENO",
 				"asientos": 4,
 				"puertas": 3,
 				"precio": 56.59,
@@ -240,7 +240,7 @@
 			{
 				"cambio": "MANUAL",
 				"motor": "ELECTRICO",
-				"vehiculo": "PEQUEÑO",
+				"vehiculo": "PEQUENO",
 				"asientos": 5,
 				"puertas": 5,
 				"precio": 72.29,

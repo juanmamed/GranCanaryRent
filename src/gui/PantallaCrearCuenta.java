@@ -45,7 +45,7 @@ public class PantallaCrearCuenta extends javax.swing.JFrame {
         lContraseñaC = new javax.swing.JLabel();
         lEmailC = new javax.swing.JLabel();
         NombreCuenta = new javax.swing.JTextField();
-        ContraseñaCuenta = new javax.swing.JTextField();
+        ContrasenaCuenta = new javax.swing.JTextField();
         EmailCuenta = new javax.swing.JTextField();
         Telefono = new javax.swing.JLabel();
         TelefonoCuenta = new javax.swing.JTextField();
@@ -94,7 +94,7 @@ public class PantallaCrearCuenta extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(NombreCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                            .addComponent(ContraseñaCuenta)
+                            .addComponent(ContrasenaCuenta)
                             .addComponent(EmailCuenta)
                             .addComponent(TelefonoCuenta))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -111,7 +111,7 @@ public class PantallaCrearCuenta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lContraseñaC, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ContraseñaCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ContrasenaCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lEmailC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -174,11 +174,11 @@ public class PantallaCrearCuenta extends javax.swing.JFrame {
     private void bAceptarCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAceptarCMouseClicked
         // TODO add your handling code here:
         String nombre = this.NombreCuenta.getText();
-        String contraseña = this.ContraseñaCuenta.getText();
+        String contrasena = this.ContrasenaCuenta.getText();
         String email = this.EmailCuenta.getText();
         String telefono = this.TelefonoCuenta.getText();
 
-        String contraseñaRegexp = ".{4,16}";
+        String contrasenaRegexp = ".{4,16}";
         String nombreRegexp = "^[a-zA-Z].*";
         String emailRegexp = "[^@]+@[^@]+\\.[a-zA-Z]{2,}";
         String telefonoRegexp = "[0-9]{9}";
@@ -189,12 +189,12 @@ public class PantallaCrearCuenta extends javax.swing.JFrame {
            "Nombre de usuario no válido", 
            JOptionPane.INFORMATION_MESSAGE);
            this.NombreCuenta.setText("");
-        }else if (Pattern.matches(contraseñaRegexp, contraseña) == false){
+        }else if (Pattern.matches(contrasenaRegexp, contrasena) == false){
             JOptionPane.showMessageDialog(null, 
             "La contraseña introducida debe tener entre 4 y 16 caracteres",
             "Contraseña no válida", 
             JOptionPane.INFORMATION_MESSAGE);
-            this.ContraseñaCuenta.setText("");
+            this.ContrasenaCuenta.setText("");
         }else if (Pattern.matches(emailRegexp, email) == false){
             JOptionPane.showMessageDialog(null, 
             "El email introducido es incorrecto",
@@ -207,7 +207,7 @@ public class PantallaCrearCuenta extends javax.swing.JFrame {
             "Telefono no válido", 
             JOptionPane.INFORMATION_MESSAGE);
             this.TelefonoCuenta.setText("");
-        } else if(this.granCarnaryRent.addUsuario(nombre, contraseña, email, telefono)==true){
+        } else if(this.granCarnaryRent.addUsuario(nombre, contrasena, email, telefono)==true){
             JOptionPane.showMessageDialog(null, 
             "Bienvenido a GranCarnaryRent",
             "Usuario creado con éxito",
@@ -270,7 +270,7 @@ public class PantallaCrearCuenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ContraseñaCuenta;
+    private javax.swing.JTextField ContrasenaCuenta;
     private javax.swing.JTextField EmailCuenta;
     private javax.swing.JTextField NombreCuenta;
     private javax.swing.JLabel Telefono;

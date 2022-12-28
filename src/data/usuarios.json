@@ -1,7 +1,7 @@
 [
 	{
 		"email": "usuario1@gmail.com",
-		"contraseña": "1234",
+		"contrasena": "1234",
 		"nombre": "Usuario1",
 		"telefono": "640170551",
 	
@@ -40,7 +40,7 @@
 	},
 	{
 		"email": "usuario2@gmail.com",
-		"contraseña": "1234",
+		"contrasena": "1234",
 		"nombre": "Usuario2",
 		"telefono": "641170351",
 

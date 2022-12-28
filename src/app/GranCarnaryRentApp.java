@@ -22,16 +22,11 @@ public class GranCarnaryRentApp {
     public static void main(String[] args) throws IOException, FileNotFoundException, ParseException, java.text.ParseException {
         // TODO code application logic here
         GranCarnaryRent model = new GranCarnaryRent();
-        
-        String filePath_oficinas = new File("src/data/oficinas.json").getAbsolutePath();
-        String filePath_usuarios = new File("src/data/usuarios.json").getAbsolutePath();
-        String filePath_servicios = new File("src/data/servicios.json").getAbsolutePath();
-        String filePath_seguros = new File("src/data/seguros.json").getAbsolutePath();
-        
-        model.loadOficinas("src/data/oficinas.json");
-        model.loadServicios(filePath_servicios);
-        model.loadSeguros(filePath_seguros);
-        model.loadUsuarios(filePath_usuarios);
+
+        model.loadOficinas("./src/data/oficinas.json");
+        model.loadServicios("./src/data/servicios.json");
+        model.loadSeguros("./src/data/seguros.json");
+        model.loadUsuarios("./src/data/usuarios.json");
         
         PantallaInicio pi = new PantallaInicio(model);
         pi.setVisible(true);         

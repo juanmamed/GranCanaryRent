@@ -60,7 +60,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="NombreInicio" min="-2" pref="140" max="-2" attributes="0"/>
-                              <Component id="ContraseñaInicio" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="ContrasenaInicio" min="-2" pref="140" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -86,7 +86,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lContraseñaI" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="ContraseñaInicio" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContrasenaInicio" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="26" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -116,7 +116,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="NombreInicio">
         </Component>
-        <Component class="javax.swing.JTextField" name="Contrase&#xf1;aInicio">
+        <Component class="javax.swing.JTextField" name="ContrasenaInicio">
         </Component>
         <Component class="javax.swing.JButton" name="bVolverI">
           <Properties>

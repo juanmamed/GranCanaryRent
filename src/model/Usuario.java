@@ -15,16 +15,16 @@ import java.util.Date;
  */
 public class Usuario {
     private String email;
-    private String contraseña;
+    private String contrasena;
     private String nombre;
     private float saldo = 0;
     private String telefono;
     private ArrayList<TarjetaCredito> tarjetas = new ArrayList<TarjetaCredito>();
     private ArrayList<Reserva> reservasRealizadas = new ArrayList<Reserva>();
 
-    public Usuario(String email, String contraseña, String nombre, String telefono) {
+    public Usuario(String email, String contrasena, String nombre, String telefono) {
         this.email = email;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
         this.nombre = nombre;
         this.telefono = telefono;
     }
@@ -33,8 +33,8 @@ public class Usuario {
         return email;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
     public String getNombre() {

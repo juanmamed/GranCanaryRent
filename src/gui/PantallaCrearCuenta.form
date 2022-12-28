@@ -67,7 +67,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="NombreCuenta" pref="140" max="32767" attributes="0"/>
-                              <Component id="ContraseñaCuenta" max="32767" attributes="0"/>
+                              <Component id="ContrasenaCuenta" max="32767" attributes="0"/>
                               <Component id="EmailCuenta" max="32767" attributes="0"/>
                               <Component id="TelefonoCuenta" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -90,7 +90,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="lContraseñaC" min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="ContraseñaCuenta" min="-2" max="-2" attributes="0"/>
+                      <Component id="ContrasenaCuenta" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -131,7 +131,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="NombreCuenta">
         </Component>
-        <Component class="javax.swing.JTextField" name="Contrase&#xf1;aCuenta">
+        <Component class="javax.swing.JTextField" name="ContrasenaCuenta">
         </Component>
         <Component class="javax.swing.JTextField" name="EmailCuenta">
           <Events>

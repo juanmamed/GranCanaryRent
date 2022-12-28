@@ -47,7 +47,7 @@ public class PantallaIniciarSesion extends javax.swing.JFrame {
         lNombreI = new javax.swing.JLabel();
         lContraseñaI = new javax.swing.JLabel();
         NombreInicio = new javax.swing.JTextField();
-        ContraseñaInicio = new javax.swing.JTextField();
+        ContrasenaInicio = new javax.swing.JTextField();
         bVolverI = new javax.swing.JButton();
         lAceptarI = new javax.swing.JButton();
 
@@ -90,7 +90,7 @@ public class PantallaIniciarSesion extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NombreInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ContraseñaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ContrasenaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(bVolverI)
@@ -109,7 +109,7 @@ public class PantallaIniciarSesion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lContraseñaI, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ContraseñaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ContrasenaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bVolverI)
@@ -139,11 +139,11 @@ public class PantallaIniciarSesion extends javax.swing.JFrame {
     private void lAceptarIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lAceptarIActionPerformed
         // TODO add your handling code here:
         nombre = this.NombreInicio.getText();
-        String contraseña = this.ContraseñaInicio.getText();
+        String contrasena = this.ContrasenaInicio.getText();
         
-        if(this.granCarnaryRent.inicioUsuario(nombre, contraseña) == true){
+        if(this.granCarnaryRent.inicioUsuario(nombre, contrasena) == true){
             JOptionPane.showMessageDialog(null, 
-            "Su cuenta ha iniciado sesión con éxito",
+            "Su cuenta ha iniciado sesión con exito",
             "Éxito al iniciar sesión",
             JOptionPane.INFORMATION_MESSAGE);
             MenuPrincipal abrir = new MenuPrincipal(granCarnaryRent, granCarnaryRent.getUsuario(nombre));
@@ -156,7 +156,7 @@ public class PantallaIniciarSesion extends javax.swing.JFrame {
             JOptionPane.INFORMATION_MESSAGE);
         }
         this.NombreInicio.setText("");
-        this.ContraseñaInicio.setText("");
+        this.ContrasenaInicio.setText("");
         //this.setVisible(false);
     }//GEN-LAST:event_lAceptarIActionPerformed
 
@@ -205,7 +205,7 @@ public class PantallaIniciarSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ContraseñaInicio;
+    private javax.swing.JTextField ContrasenaInicio;
     private javax.swing.JTextField NombreInicio;
     private javax.swing.JButton bVolverI;
     private javax.swing.JLabel jLabel3;

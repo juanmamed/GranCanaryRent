@@ -79,7 +79,7 @@ public class GranCarnaryRent {
         while(iterator.hasNext()){
             json_usuarios = (JSONObject) iterator.next();
             
-            Usuario usuario = new Usuario((String) json_usuarios.get("email"), (String) json_usuarios.get("contraseña"), (String) json_usuarios.get("nombre"), (String) json_usuarios.get("numero"));
+            Usuario usuario = new Usuario((String) json_usuarios.get("email"), (String) json_usuarios.get("contrasena"), (String) json_usuarios.get("nombre"), (String) json_usuarios.get("numero"));
             
             if(existUsuario(usuario.getNombre(), usuario.getEmail()) == false){
                 JSONArray array_tarjetas = (JSONArray) json_usuarios.get("TarjetaCredito");
@@ -192,20 +192,20 @@ public class GranCarnaryRent {
         return false;
     }
 
-    public boolean inicioUsuario(String nombre, String contraseña) {
-        for(int i=0; i<usuarios.size();i++){
-            if(this.usuarios.get(i).getNombre().equals(nombre) && this.usuarios.get(i).getContraseña().equals(contraseña)){
+    public boolean inicioUsuario(String nombre, String contrasena) {
+        for(int i=0; i<this.usuarios.size();i++){
+            if(this.usuarios.get(i).getNombre().equals(nombre) && this.usuarios.get(i).getContrasena().equals(contrasena)){
                 return true;
             }
         }
         return false;
     }
 
-    public boolean addUsuario(String nombre, String contraseña, String email, String telefono) {
+    public boolean addUsuario(String nombre, String contrasena, String email, String telefono) {
         if (existUsuario(nombre, email) == true) {
             return false;
         } else {
-            this.usuarios.add(new Usuario(email, contraseña, nombre, telefono));
+            this.usuarios.add(new Usuario(email, contrasena, nombre, telefono));
             return true;
         }   
     }

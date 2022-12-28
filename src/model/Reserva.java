@@ -130,7 +130,7 @@ public class Reserva {
     public String toStringServicios(){
         String result = "";
         if (this.serviciosSeleccionados.size() == 0){
-            result = "Sin servicios";
+            result = "Sin servicios adicionales";
             return result;
         }
         for(int i=0; i<this.serviciosSeleccionados.size(); i++){

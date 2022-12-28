@@ -7,10 +7,12 @@ package gui;
 
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import model.GranCarnaryRent;
 import model.Reserva;
+import model.TarjetaCredito;
 import model.Usuario;
 
 /**
@@ -199,6 +201,11 @@ public class VerReservas extends javax.swing.JFrame {
         });
 
         Pagar.setText("Pagar");
+        Pagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PagarActionPerformed(evt);
+            }
+        });
 
         Volver.setText("Volver");
         Volver.addActionListener(new java.awt.event.ActionListener() {
@@ -414,7 +421,6 @@ public class VerReservas extends javax.swing.JFrame {
         if(reservas_sin_pagar.length>0){
             Reserva reserva = this.granCarnaryRent.getReserva(user.getNombre(), reservas_sin_pagar[0]);
             ListaDeReservas.setSelectedIndex(0);
-            System.out.println("HOLA");
             OficinaDeRecogida.setText(reserva.getOficinaRecogida().getDireccion());
             OficinaDeEntrega.setText(reserva.getOficinaEntrega().getDireccion());
             FechaDeRecogida.setText(this.granCarnaryRent.DateToString(reserva.getFechaRecogida()));
@@ -436,6 +442,37 @@ public class VerReservas extends javax.swing.JFrame {
         ListaDeReservas.setListData(text);
         this.setVisible(false);
     }//GEN-LAST:event_VolverActionPerformed
+
+    private void PagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PagarActionPerformed
+        // TODO add your handling code here:
+        try{
+            for (Reserva reserva : this.user.getReservasRealizadas()){
+                if(ListaDeReservas.getSelectedValue().equals(reserva.toString())){
+                    System.out.println(reserva.isPagado());
+                    if (reserva.isPagado() == true){
+                        JOptionPane.showMessageDialog(null,
+                        "Esta reserva no se encuentra pendiente de pago",
+                        "Esta reserva ya ha sido pagada",
+                        JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    } else {
+                        PagarReserva abrir = new PagarReserva(this.granCarnaryRent, this.user, reserva);
+                        abrir.setVisible(true);
+                        String [] text = new String[0];
+                        ListaDeReservas.setListData(text);
+                        this.setVisible(false);
+                        break;
+                    }
+                }
+                
+            }
+        }catch(java.lang.NullPointerException e){
+            JOptionPane.showMessageDialog(null,
+                "No ha seleccionado correctamente el elemento",
+                "Seleccione una tarjeta",
+                JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_PagarActionPerformed
 
     /**
      * @param args the command line arguments

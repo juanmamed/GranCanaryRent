@@ -164,6 +164,10 @@ public class PantallaVerTarjetas extends javax.swing.JFrame {
             for (TarjetaCredito tarjeta : this.user.getTarjetas()){
                 if(ListaDeTarjetas.getSelectedValue().equals(tarjeta.toString())){
                     this.user.deleteCreditCard(tarjeta);
+                    JOptionPane.showMessageDialog(null,
+                    "La tarjeta ha sido eliminada correctamente",
+                    "Tarjeta eliminada exitósamente",
+                    JOptionPane.INFORMATION_MESSAGE);
                     this.printTarjetas();
                     break;
                 }
